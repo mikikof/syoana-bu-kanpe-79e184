@@ -1,0 +1,1842 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta charset="UTF-8">
+<title>BU 答練 第 2 回 統合スライドセリフ — カンペ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root {
+    --navy: #1E4D6B;
+  --navy-dark: #163A52;
+  --light-blue: #B8D4E8;
+  --tangent-bg: #F3F7FA;
+  --assist-bg: #FFF8E8;
+  --assist-border: #E0A45C;
+  --bg: #F5F6F8;
+  --paper: #FFFFFF;
+  --text: #1F1F1F;
+  --text-muted: #555555;
+  --text-faint: #888888;
+  --border: #DCDCDC;
+  --border-light: #ECECEC;
+  --sidebar-bg: #F0F2F5;
+  --sidebar-active: #E3EDF6;
+  --top-bg: #FFFFFF;
+  --warning: #D9534F;
+  --success: #5CB85C;
+  --navy: #1E4D6B;
+  --navy-dark: #163A52;
+  --light-blue: #B8D4E8;
+  --tangent-bg: #F3F7FA;
+  --assist-bg: #FFF8E8;
+  --assist-border: #E0A45C;
+  --bg: #F5F6F8;
+  --paper: #FFFFFF;
+  --text: #1F1F1F;
+  --text-muted: #555555;
+  --text-faint: #888888;
+  --border: #DCDCDC;
+  --border-light: #ECECEC;
+  --sidebar-bg: #F0F2F5;
+  --sidebar-active: #E3EDF6;
+  --top-bg: #FFFFFF;
+  --script-font-size: 16px;
+  --warning: #D9534F;
+  --success: #5CB85C;
+  --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  --layout-pad: 24px;
+}
+body.dark {
+  --navy: #80B0CC;
+  --navy-dark: #B5D5E8;
+  --light-blue: #4A6580;
+  --tangent-bg: #1B2A36;
+  --assist-bg: #2D2418;
+  --assist-border: #B07A3A;
+  --bg: #15191E;
+  --paper: #1F2530;
+  --text: #E5E7EB;
+  --text-muted: #A0A6B0;
+  --text-faint: #6B7180;
+  --border: #2D3340;
+  --border-light: #232936;
+  --sidebar-bg: #181D26;
+  --sidebar-active: #283242;
+  --top-bg: #1A1F28;
+  --warning: #E47872;
+  --success: #7BC97F;
+
+  }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Yu Gothic", "游ゴシック", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px; line-height: 1.85;
+  color: var(--text); background: var(--bg);
+  margin: 0; padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+/* ===== トップバー ===== */
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--top-bg);
+  border-bottom: 1px solid var(--border);
+  padding: 8px 16px;
+  display: flex; align-items: center; gap: 16px;
+  height: 56px;
+  box-shadow: var(--shadow);
+}
+.topbar-title {
+  font-weight: bold; color: var(--navy); font-size: 14px;
+  white-space: nowrap; flex-shrink: 0;
+}
+.topbar-progress {
+  flex: 1; min-width: 100px; max-width: 360px;
+  display: flex; align-items: center; gap: 10px;
+}
+.topbar-progress progress {
+  flex: 1; height: 6px; appearance: none;
+}
+.topbar-progress progress::-webkit-progress-bar {
+  background: var(--border-light); border-radius: 3px;
+}
+.topbar-progress progress::-webkit-progress-value {
+  background: var(--navy); border-radius: 3px;
+}
+.topbar-progress progress::-moz-progress-bar { background: var(--navy); }
+.topbar-progress-text {
+  font-size: 12px; color: var(--text-muted); white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.topbar-timer {
+  font-size: 13px; color: var(--text-muted); white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  display: flex; gap: 6px; align-items: center;
+}
+.topbar-timer.over { color: var(--warning); font-weight: bold; }
+.topbar-timer .timer-controls {
+  display: flex; gap: 2px;
+}
+.topbar-timer button {
+  background: none; border: 1px solid var(--border); cursor: pointer;
+  font-size: 11px; padding: 2px 6px; border-radius: 3px; color: var(--text-muted);
+}
+.topbar-timer button:hover { background: var(--border-light); }
+.topbar-spacer { flex: 1; }
+.topbar-btn {
+  background: none; border: 1px solid var(--border);
+  cursor: pointer; padding: 6px 10px; border-radius: 4px;
+  font-size: 13px; color: var(--text);
+}
+.topbar-btn:hover { background: var(--border-light); }
+.btn-toggle-sidebar { display: none; }
+@media (max-width: 900px) {
+  .btn-toggle-sidebar { display: inline-block; }
+  .topbar-progress { display: none; }
+}
+
+/* ===== レイアウト ===== */
+.layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  min-height: calc(100vh - 56px);
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+}
+
+/* ===== サイドバー ===== */
+.sidebar {
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  position: sticky; top: 56px;
+  align-self: start;
+  height: calc(100vh - 56px);
+  overflow-y: auto;
+  padding: 0;
+}
+@media (max-width: 900px) {
+  .sidebar {
+    position: fixed; left: 0; top: 56px;
+    height: calc(100vh - 56px); width: 280px;
+    z-index: 99; box-shadow: 4px 0 12px rgba(0,0,0,0.1);
+    transform: translateX(-100%); transition: transform 0.25s;
+  }
+  body.sidebar-open .sidebar { transform: translateX(0); }
+}
+.sidebar-search {
+  position: sticky; top: 0; background: var(--sidebar-bg);
+  padding: 12px 14px; border-bottom: 1px solid var(--border);
+  z-index: 2;
+}
+.sidebar-search input {
+  width: 100%; padding: 7px 10px;
+  border: 1px solid var(--border); border-radius: 4px;
+  font-size: 13px; background: var(--paper); color: var(--text);
+}
+.sidebar-search input:focus { outline: 2px solid var(--navy); outline-offset: -1px; }
+.sidebar-filters {
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--border);
+  display: flex; flex-wrap: wrap; gap: 4px;
+}
+.filter-chip {
+  font-size: 11px; cursor: pointer;
+  padding: 3px 7px; border-radius: 3px;
+  background: var(--paper); border: 1px solid var(--border);
+  display: inline-flex; align-items: center; gap: 3px;
+  color: var(--text-muted);
+}
+.filter-chip input { margin: 0; transform: scale(0.9); }
+.filter-chip:hover { background: var(--border-light); }
+.filter-chip:has(input:checked) {
+  background: var(--sidebar-active); color: var(--text);
+  border-color: var(--navy);
+}
+.toc-chapter { padding: 4px 0 8px; }
+.toc-chapter-header {
+  font-size: 11px; color: var(--text-muted); letter-spacing: 1.5px;
+  padding: 8px 14px 4px; font-weight: bold;
+  text-transform: uppercase;
+}
+.toc-item {
+  display: grid;
+  grid-template-columns: 50px 18px 1fr 18px;
+  align-items: center; gap: 6px;
+  padding: 6px 14px;
+  text-decoration: none; color: var(--text);
+  font-size: 12px; line-height: 1.4;
+  border-left: 3px solid transparent;
+}
+.toc-item:hover { background: var(--border-light); }
+.toc-item.active {
+  background: var(--sidebar-active);
+  border-left-color: var(--navy);
+  font-weight: bold;
+}
+.toc-num {
+  font-family: "SF Mono", monospace; font-size: 10px;
+  color: var(--text-faint); font-weight: normal;
+}
+.toc-item.active .toc-num { color: var(--navy); }
+.toc-icon { font-size: 11px; opacity: 0.7; text-align: center; }
+.toc-title {
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.toc-memo-indicator { font-size: 10px; opacity: 0.7; }
+
+/* ===== メイン ===== */
+.main {
+  padding: 32px clamp(16px, 4vw, 48px) 120px;
+  max-width: 880px;
+  margin: 0 auto;
+  width: 100%;
+}
+.cover {
+  text-align: center;
+  padding: 32px 0 24px;
+  border-bottom: 4px solid var(--navy);
+  margin-bottom: 32px;
+}
+.cover-no { font-size: 12px; letter-spacing: 6px; color: var(--navy); margin-bottom: 10px; font-weight: bold; }
+.cover h1 { font-size: 28px; color: var(--navy); margin: 0 0 8px; font-weight: bold; letter-spacing: 1.5px; }
+.cover .subtitle { font-size: 15px; color: var(--text-muted); margin: 0 0 18px; line-height: 1.6; }
+.cover .meta-row { display: inline-flex; gap: 20px; font-size: 13px; color: var(--text-muted); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 10px 20px; }
+
+.legend {
+  background: var(--tangent-bg);
+  border: 1px solid var(--border);
+  padding: 12px 16px; border-radius: 4px;
+  font-size: 12px; line-height: 1.7; color: var(--text-muted);
+  margin: 0 0 24px;
+}
+.legend-row { display: flex; gap: 8px; margin: 3px 0; }
+.legend-label { font-weight: bold; flex-shrink: 0; min-width: 90px; }
+.legend-row.tangent .legend-label { color: var(--navy); }
+.legend-row.assist .legend-label { color: #8B5A1A; }
+body.dark .legend-row.assist .legend-label { color: #B07A3A; }
+.legend-keys {
+  margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--border);
+  font-size: 11px;
+}
+.legend-keys kbd {
+  background: var(--paper); border: 1px solid var(--border);
+  border-radius: 2px; padding: 1px 5px; font-size: 10px;
+  font-family: "SF Mono", monospace;
+}
+
+.chapter-banner {
+  background: var(--navy); color: white;
+  padding: 28px 28px; margin: 56px -16px 28px;
+  text-align: center; border-radius: 4px;
+  page-break-before: always; break-before: page;
+}
+.chapter-banner .chapter-no { font-size: 12px; letter-spacing: 8px; opacity: 0.85; margin-bottom: 10px; }
+.chapter-banner h2 { font-size: 22px; margin: 0 0 10px; font-weight: bold; letter-spacing: 1.2px; }
+.chapter-banner .chapter-meta { font-size: 12px; opacity: 0.85; letter-spacing: 1px; }
+.first-chapter { page-break-before: auto; break-before: auto; }
+
+.slide {
+  background: var(--paper); border: 1px solid var(--border); border-radius: 6px;
+  padding: 22px 26px 18px; margin: 0 0 22px;
+  page-break-inside: avoid; break-inside: avoid;
+  scroll-margin-top: 70px;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.slide.is-current {
+  border-color: var(--navy);
+  box-shadow: 0 0 0 2px var(--sidebar-active);
+}
+.slide.search-hit { background: linear-gradient(0deg, var(--paper) 0%, var(--paper) 100%); }
+.slide.dim { opacity: 0.35; }
+.slide-header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
+.slide-badge {
+  display: inline-block; background: var(--navy); color: white;
+  font-family: "SF Mono", monospace; font-size: 13px;
+  padding: 4px 10px; border-radius: 3px; font-weight: bold;
+}
+.slide-type {
+  font-size: 11px; color: var(--navy); background: var(--light-blue);
+  padding: 3px 8px; border-radius: 3px; font-weight: bold;
+}
+.slide-time { margin-left: auto; color: var(--text-muted); font-size: 12px; white-space: nowrap; }
+.slide-title { font-size: 17px; color: var(--navy); margin: 6px 0 12px; font-weight: bold; line-height: 1.5; }
+.slide-divider { border: none; border-top: 1px dashed var(--border); margin: 0 0 14px; }
+.script {
+  font-size: var(--script-font-size); line-height: 1.95; color: var(--text);
+}
+.script p { margin: 0 0 14px; }
+.script p:last-child { margin-bottom: 0; }
+.script strong {
+  background: linear-gradient(transparent 60%, var(--light-blue) 60%);
+  padding: 0 2px; font-weight: bold;
+}
+mark.search-mark { background: yellow; color: #000; padding: 0 1px; border-radius: 2px; }
+body.dark mark.search-mark { background: #FFD54F; color: #000; }
+.tangent {
+  background: var(--tangent-bg); border-left: 4px solid var(--light-blue);
+  padding: 12px 16px 12px 20px; margin: 18px 0 10px;
+  border-radius: 0 4px 4px 0; page-break-inside: avoid;
+}
+.tangent-header { font-size: 12px; color: var(--navy); margin: 0 0 6px; font-weight: bold; }
+.tangent-body { font-size: 13.5px; line-height: 1.8; }
+.tangent-body p { margin: 0 0 8px; }
+.tangent-body p:last-child { margin-bottom: 0; }
+.assist {
+  background: var(--assist-bg); border-left: 4px solid var(--assist-border);
+  padding: 12px 16px 12px 20px; margin: 18px 0 10px;
+  border-radius: 0 4px 4px 0;
+}
+.assist-header { font-size: 12px; color: #8B5A1A; margin: 0 0 6px; font-weight: bold; }
+body.dark .assist-header { color: #C09060; }
+.assist-body { font-size: 13.5px; line-height: 1.8; }
+.assist-body p { margin: 0 0 8px; }
+.assist-body p:last-child { margin-bottom: 0; }
+.script-meta {
+  text-align: right; font-size: 10.5px; color: var(--text-faint);
+  margin-top: 10px; padding-top: 6px;
+  border-top: 1px solid var(--border-light); letter-spacing: 0.4px;
+}
+.memo-zone {
+  margin-top: 14px; padding: 10px 12px;
+  background: rgba(0,0,0,0.02); border: 1px dashed var(--border);
+  border-radius: 4px;
+  display: none;
+}
+body.dark .memo-zone { background: rgba(255,255,255,0.03); }
+.slide.has-memo .memo-zone, body.show-memos .memo-zone { display: block; }
+.memo-zone-label { font-size: 11px; color: var(--text-faint); margin-bottom: 4px; }
+.memo-zone textarea {
+  width: 100%; min-height: 50px; resize: vertical;
+  padding: 6px 8px; font-family: inherit; font-size: 13px;
+  border: 1px solid var(--border); border-radius: 3px;
+  background: var(--paper); color: var(--text);
+}
+.chapter-end {
+  text-align: center; color: var(--text-faint); font-size: 11px;
+  letter-spacing: 4px; margin: 28px 0 0; padding: 10px 0;
+  border-top: 1px dashed var(--border);
+}
+
+/* ===== 浮き ナビ(下部固定) ===== */
+.bottom-nav {
+  position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%);
+  background: var(--paper); border: 1px solid var(--border);
+  border-radius: 30px; padding: 6px 10px;
+  display: flex; gap: 4px; align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  z-index: 50;
+}
+.bottom-nav button {
+  border: none; background: none; cursor: pointer;
+  padding: 7px 11px; font-size: 14px; border-radius: 18px;
+  color: var(--text); font-weight: bold;
+}
+.bottom-nav button:hover { background: var(--border-light); }
+.bottom-nav .nav-current {
+  font-size: 11px; color: var(--text-muted); font-weight: normal;
+  padding: 0 8px; max-width: 240px; overflow: hidden;
+  text-overflow: ellipsis; white-space: nowrap;
+}
+
+/* ===== コントロールパネル(右下) ===== */
+.controls {
+  position: fixed; bottom: 12px; right: 12px;
+  display: flex; flex-direction: column; gap: 4px;
+  z-index: 50;
+}
+.controls button {
+  width: 38px; height: 38px;
+  border: 1px solid var(--border); background: var(--paper);
+  border-radius: 50%; cursor: pointer;
+  font-size: 14px; display: flex; align-items: center; justify-content: center;
+  box-shadow: var(--shadow); color: var(--text);
+}
+.controls button:hover { background: var(--border-light); }
+.controls button.active {
+  background: var(--navy); color: white;
+}
+
+/* ===== モーダル ===== */
+.modal-backdrop {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 200; padding: 20px;
+}
+.modal-backdrop[hidden] { display: none; }
+.modal {
+  background: var(--paper); border-radius: 6px;
+  max-width: 600px; width: 100%;
+  max-height: 80vh; overflow-y: auto;
+  padding: 22px 26px; box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  color: var(--text);
+}
+.modal h2 { margin: 0 0 16px; color: var(--navy); font-size: 18px; }
+.modal .close-btn {
+  float: right; background: none; border: none;
+  font-size: 24px; cursor: pointer; color: var(--text-muted);
+  line-height: 1; padding: 0;
+}
+.modal kbd {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 3px; padding: 2px 6px; font-size: 11px;
+  font-family: "SF Mono", monospace;
+}
+.modal table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.modal td { padding: 6px 0; border-bottom: 1px dashed var(--border-light); }
+.modal td:first-child { width: 40%; }
+.modal #memo-textarea {
+  width: 100%; min-height: 220px; resize: vertical;
+  padding: 10px; font-family: inherit; font-size: 14px;
+  border: 1px solid var(--border); border-radius: 4px;
+  background: var(--paper); color: var(--text);
+}
+.modal .modal-actions {
+  display: flex; gap: 8px; justify-content: flex-end;
+  margin-top: 12px;
+}
+.modal .modal-actions button {
+  padding: 6px 14px; border-radius: 4px; cursor: pointer; font-size: 13px;
+  border: 1px solid var(--border); background: var(--paper); color: var(--text);
+}
+.modal .modal-actions button.primary {
+  background: var(--navy); color: white; border-color: var(--navy);
+}
+
+/* ===== プレゼンモード ===== */
+body.presentation {
+  overflow: hidden;
+}
+body.presentation .topbar,
+body.presentation .sidebar,
+body.presentation .bottom-nav,
+body.presentation .controls,
+body.presentation .legend,
+body.presentation .cover,
+body.presentation .chapter-banner,
+body.presentation .chapter-end { display: none !important; }
+body.presentation .layout { grid-template-columns: 1fr; }
+body.presentation .main {
+  max-width: none; padding: 0;
+  height: 100vh; overflow: hidden; position: relative;
+}
+body.presentation .slide {
+  display: none;
+  margin: 0; padding: 60px 80px 100px;
+  height: 100vh; max-height: 100vh; overflow-y: auto;
+  border-radius: 0; border: none;
+  font-size: 18px;
+  scroll-margin-top: 0;
+}
+body.presentation .slide.is-current {
+  display: block;
+  box-shadow: none;
+  border-color: transparent;
+}
+body.presentation .slide-title { font-size: 24px; }
+body.presentation .script { font-size: calc(var(--script-font-size) + 3px); line-height: 2; }
+body.presentation .pres-controls {
+  display: flex !important;
+}
+.pres-controls {
+  display: none;
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: var(--top-bg); border-top: 1px solid var(--border);
+  padding: 10px 20px; gap: 12px;
+  align-items: center; z-index: 100;
+}
+.pres-controls progress {
+  flex: 1; height: 4px; appearance: none;
+}
+.pres-controls progress::-webkit-progress-bar { background: var(--border-light); }
+.pres-controls progress::-webkit-progress-value { background: var(--navy); }
+.pres-controls .pres-info {
+  font-size: 12px; color: var(--text-muted); white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.pres-controls button {
+  padding: 6px 14px; border-radius: 4px; cursor: pointer;
+  border: 1px solid var(--border); background: var(--paper); color: var(--text);
+  font-size: 13px;
+}
+
+/* ===== 印刷 ===== */
+@media print {
+  body { background: white; font-size: 11pt; }
+  .topbar, .sidebar, .bottom-nav, .controls, .legend, .modal-backdrop, .pres-controls { display: none !important; }
+  .layout { grid-template-columns: 1fr; }
+  .main { max-width: none; padding: 12mm 14mm; }
+  .slide { box-shadow: none; border: 1px solid #999; page-break-inside: avoid; }
+  .chapter-banner { margin: 0 -14mm 8mm; padding: 18mm 14mm; }
+  .cover { page-break-after: always; }
+  body.dark { background: white; color: black; }
+}
+
+/* ===== モバイル微調整 ===== */
+@media (max-width: 600px) {
+  .topbar { padding: 6px 10px; gap: 8px; }
+  .topbar-title { font-size: 12px; }
+  .topbar-timer { font-size: 11px; }
+  .main { padding: 18px 14px 100px; }
+  .slide { padding: 16px 18px 14px; }
+  .slide-title { font-size: 15px; }
+  .controls button { width: 36px; height: 36px; font-size: 13px; }
+  .bottom-nav { gap: 2px; padding: 4px 6px; }
+  .bottom-nav button { padding: 6px 9px; font-size: 13px; }
+  .bottom-nav .nav-current { display: none; }
+}
+
+</style>
+</head>
+<body class="">
+
+<!-- ===== トップバー ===== -->
+<header class="topbar">
+  <button class="topbar-btn btn-toggle-sidebar" id="btn-toggle-sidebar" title="目次">☰</button>
+  <div class="topbar-title">BU 答練 第 2 回 統合スライドセリフ</div>
+  <div class="topbar-progress">
+    <progress id="progress-bar" value="1" max="46"></progress>
+    <span class="topbar-progress-text" id="progress-text">1 / 46</span>
+  </div>
+  <div class="topbar-timer" id="topbar-timer">
+    <span id="timer-text">⏱ 0:00 / 1:30</span>
+    <span class="timer-controls">
+      <button id="timer-pause" title="一時停止">⏸</button>
+      <button id="timer-reset" title="リセット">↺</button>
+    </span>
+  </div>
+  <span class="topbar-spacer"></span>
+</header>
+
+<div class="layout">
+
+<!-- ===== サイドバー ===== -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-search">
+    <input type="search" id="search-input" placeholder="検索 (/)" autocomplete="off">
+  </div>
+  <div class="sidebar-filters" id="filters">
+<label class="filter-chip"><input type="checkbox" value="cover" checked><span>🏠 表紙</span></label>
+<label class="filter-chip"><input type="checkbox" value="toc" checked><span>📑 目次</span></label>
+<label class="filter-chip"><input type="checkbox" value="chapter" checked><span>📌 章扉</span></label>
+<label class="filter-chip"><input type="checkbox" value="q-cover" checked><span>❓ 問題扉</span></label>
+<label class="filter-chip"><input type="checkbox" value="q-answer" checked><span>✓ 解答</span></label>
+<label class="filter-chip"><input type="checkbox" value="detail" checked><span>🔍 深掘り</span></label>
+<label class="filter-chip"><input type="checkbox" value="summary" checked><span>🏁 まとめ</span></label>
+</div>
+<nav id="toc-nav">
+<div class="toc-chapter">
+<div class="toc-chapter-header">📘 全体扉・目次</div>
+<a href="#bu2-1" class="toc-item" data-id="bu2-1" data-cat="cover" data-search="全体表紙 — ブラッシュアップ答練 Part 2 表紙"><span class="toc-num">BU2-1</span><span class="toc-icon" title="表紙">🏠</span><span class="toc-title">全体表紙 — ブラッシュアップ答練 Part 2</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-2" class="toc-item" data-id="bu2-2" data-cat="toc" data-search="全体目次 目次"><span class="toc-num">BU2-2</span><span class="toc-icon" title="目次">📑</span><span class="toc-title">全体目次</span><span class="toc-memo-indicator" hidden>📝</span></a>
+</div>
+<div class="toc-chapter">
+<div class="toc-chapter-header">① 第Ⅰ問 — KRD と金利二項ツリー</div>
+<a href="#bu2-3" class="toc-item" data-id="bu2-3" data-cat="q-cover" data-search="第Ⅰ問 問1扉 — キーレート・デュレーションの考え方 問題扉"><span class="toc-num">BU2-3</span><span class="toc-icon" title="問題扉">❓</span><span class="toc-title">第Ⅰ問 問1扉 — キーレート・デュレーションの考え方</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-4" class="toc-item" data-id="bu2-4" data-cat="q-answer" data-search="問1 解答 — 穴埋め(パラレル・シフト/キーレート/KRD ほか) 解答"><span class="toc-num">BU2-4</span><span class="toc-icon" title="解答">✓</span><span class="toc-title">問1 解答 — 穴埋め(パラレル・シフト/キーレート/KRD ほか)</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-5" class="toc-item" data-id="bu2-5" data-cat="detail" data-search="深掘り — 修正D の前提 vs KRD の年限独立調整 深掘り"><span class="toc-num">BU2-5</span><span class="toc-icon" title="深掘り">🔍</span><span class="toc-title">深掘り — 修正D の前提 vs KRD の年限独立調整</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-6" class="toc-item" data-id="bu2-6" data-cat="q-cover" data-search="問2扉 — 10 年スポットレートに対する KRD 問題扉"><span class="toc-num">BU2-6</span><span class="toc-icon" title="問題扉">❓</span><span class="toc-title">問2扉 — 10 年スポットレートに対する KRD</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-7" class="toc-item" data-id="bu2-7" data-cat="q-answer" data-search="問2(1) 解答 — 割引債の Macaulay D = 残存期間 解答"><span class="toc-num">BU2-7</span><span class="toc-icon" title="解答">✓</span><span class="toc-title">問2(1) 解答 — 割引債の Macaulay D = 残存期間</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-8" class="toc-item" data-id="bu2-8" data-cat="q-answer" data-search="問2(2) 解答 — 修正 D = Macaulay D / (1 + y) 解答"><span class="toc-num">BU2-8</span><span class="toc-icon" title="解答">✓</span><span class="toc-title">問2(2) 解答 — 修正 D = Macaulay D / (1 + y)</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-9" class="toc-item" data-id="bu2-9" data-cat="q-answer" data-search="問2(3) 解答 — PV = 将来CF × 割引係数 解答"><span class="toc-num">BU2-9</span><span class="toc-icon" title="解答">✓</span><span class="toc-title">問2(3) 解答 — PV = 将来CF × 割引係数</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-10" class="toc-item" data-id="bu2-10" data-cat="q-answer" data-search="問2(4) 解答 — 10 年キーレート・デュレーション KRD₁₀ ≈ 7.01 解答"><span class="toc-num">BU2-10</span><span class="toc-icon" title="解答">✓</span><span class="toc-title">問2(4) 解答 — 10 年キーレート・デュレーション KRD₁₀ ≈…</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-11" class="toc-item" data-id="bu2-11" data-cat="detail" data-search="深掘り — KRD の分解「PV比率 × 修正D」とキャッシュフロー構造 深掘り"><span class="toc-num">BU2-11</span><span class="toc-icon" title="深掘り">🔍</span><span class="toc-title">深掘り — KRD の分解「PV比率 × 修正D」とキャッシュフロー構造</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-12" class="toc-item" data-id="bu2-12" data-cat="q-cover" data-search="問3扉 — 再結合する金利二項ツリー 問題扉"><span class="toc-num">BU2-12</span><span class="toc-icon" title="問題扉">❓</span><span class="toc-title">問3扉 — 再結合する金利二項ツリー</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-13" class="toc-item" data-id="bu2-13" data-cat="q-answer" data-search="問3(1) 解答 — Δt=1 ならドリフト項で期待値が決まる 解答"><span class="toc-num">BU2-13</span><span class="toc-icon" title="解答">✓</span><span class="toc-title">問3(1) 解答 — Δt=1 ならドリフト項で期待値が決まる</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-14" class="toc-item" data-id="bu2-14" data-cat="detail" data-search="深掘り — 再結合ツリーの構造(t=0, 1, 2) 深掘り"><span class="toc-num">BU2-14</span><span class="toc-icon" title="深掘り">🔍</span><span class="toc-title">深掘り — 再結合ツリーの構造(t=0, 1, 2)</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-15" class="toc-item" data-id="bu2-15" data-cat="q-cover" data-search="問3(2)(3) 扉 — 連立条件式(期待値・標準偏差) 問題扉"><span class="toc-num">BU2-15</span><span class="toc-icon" title="問題扉">❓</span><span class="toc-title">問3(2)(3) 扉 — 連立条件式(期待値・標準偏差)</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-16" class="toc-item" data-id="bu2-16" data-cat="q-answer" data-search="問3(2)(3) 解答 — Rdd ≈ 0.4457%、Qdu ≈ 67.11% 解答"><span class="toc-num">BU2-16</span><span class="toc-icon" title="解答">✓</span><span class="toc-title">問3(2)(3) 解答 — Rdd ≈ 0.4457%、Qdu ≈ 67…</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-17" class="toc-item" data-id="bu2-17" data-cat="toc" data-search="目次再掲 — 第Ⅱ問への切り替え 目次"><span class="toc-num">BU2-17</span><span class="toc-icon" title="目次">📑</span><span class="toc-title">目次再掲 — 第Ⅱ問への切り替え</span><span class="toc-memo-indicator" hidden>📝</span></a>
+</div>
+<div class="toc-chapter">
+<div class="toc-chapter-header">② 第Ⅱ問 — オプション内蔵債・OAS</div>
+<a href="#bu2-18" class="toc-item" data-id="bu2-18" data-cat="q-cover" data-search="問1扉 — コーラブル債とプッタブル債の価格特性 問題扉"><span class="toc-num">BU2-18</span><span class="toc-icon" title="問題扉">❓</span><span class="toc-title">問1扉 — コーラブル債とプッタブル債の価格特性</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-19" class="toc-item" data-id="bu2-19" data-cat="q-answer" data-search="問1 解答 — 金利上昇時はコーラブル債の下落幅が大きい 解答"><span class="toc-num">BU2-19</span><span class="toc-icon" title="解答">✓</span><span class="toc-title">問1 解答 — 金利上昇時はコーラブル債の下落幅が大きい</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-20" class="toc-item" data-id="bu2-20" data-cat="detail" data-search="深掘り — 価格 vs 利回り 3 曲線(通常債/コーラブル/プッタブル) 深掘り"><span class="toc-num">BU2-20</span><span class="toc-icon" title="深掘り">🔍</span><span class="toc-title">深掘り — 価格 vs 利回り 3 曲線(通常債/コーラブル/プッタブル)</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-21" class="toc-item" data-id="bu2-21" data-cat="q-cover" data-search="問2扉 — 実効デュレーション 問題扉"><span class="toc-num">BU2-21</span><span class="toc-icon" title="問題扉">❓</span><span class="toc-title">問2扉 — 実効デュレーション</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-22" class="toc-item" data-id="bu2-22" data-cat="q-answer" data-search="問2(1) 解答 — 実効デュレーションの定義式 解答"><span class="toc-num">BU2-22</span><span class="toc-icon" title="解答">✓</span><span class="toc-title">問2(1) 解答 — 実効デュレーションの定義式</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-23" class="toc-item" data-id="bu2-23" data-cat="q-answer" data-search="問2(2) 解答 — 実効デュレーション ≈ 4.06 解答"><span class="toc-num">BU2-23</span><span class="toc-icon" title="解答">✓</span><span class="toc-title">問2(2) 解答 — 実効デュレーション ≈ 4.06</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-24" class="toc-item" data-id="bu2-24" data-cat="q-answer" data-search="問2(3) 解答 — なぜコーラブル債は実効デュレーションが小さいのか 解答"><span class="toc-num">BU2-24</span><span class="toc-icon" title="解答">✓</span><span class="toc-title">問2(3) 解答 — なぜコーラブル債は実効デュレーションが小さいのか</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-25" class="toc-item" data-id="bu2-25" data-cat="q-cover" data-search="問3扉 — OAS の考え方と簡便計算 問題扉"><span class="toc-num">BU2-25</span><span class="toc-icon" title="問題扉">❓</span><span class="toc-title">問3扉 — OAS の考え方と簡便計算</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-26" class="toc-item" data-id="bu2-26" data-cat="q-answer" data-search="問3(1) 解答 — OAS とは何か(定義と手順) 解答"><span class="toc-num">BU2-26</span><span class="toc-icon" title="解答">✓</span><span class="toc-title">問3(1) 解答 — OAS とは何か(定義と手順)</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-27" class="toc-item" data-id="bu2-27" data-cat="q-answer" data-search="問3(2) 解答 — リスクフリー金利 + s で割引いて期待値を計算 解答"><span class="toc-num">BU2-27</span><span class="toc-icon" title="解答">✓</span><span class="toc-title">問3(2) 解答 — リスクフリー金利 + s で割引いて期待値を計算</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-28" class="toc-item" data-id="bu2-28" data-cat="detail" data-search="深掘り — Z スプレッド = OAS + オプション価値スプレッド 深掘り"><span class="toc-num">BU2-28</span><span class="toc-icon" title="深掘り">🔍</span><span class="toc-title">深掘り — Z スプレッド = OAS + オプション価値スプレッド</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-29" class="toc-item" data-id="bu2-29" data-cat="q-answer" data-search="問3(3) 解答 — ボラ縮小時の Z スプレッドと OAS の関係 解答"><span class="toc-num">BU2-29</span><span class="toc-icon" title="解答">✓</span><span class="toc-title">問3(3) 解答 — ボラ縮小時の Z スプレッドと OAS の関係</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-30" class="toc-item" data-id="bu2-30" data-cat="q-cover" data-search="問4扉 — オプション内蔵型債券に関する理解(選択肢) 問題扉"><span class="toc-num">BU2-30</span><span class="toc-icon" title="問題扉">❓</span><span class="toc-title">問4扉 — オプション内蔵型債券に関する理解(選択肢)</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-31" class="toc-item" data-id="bu2-31" data-cat="q-answer" data-search="問4 解答 — 正解 D(ボラ低下で Z と OAS が接近) 解答"><span class="toc-num">BU2-31</span><span class="toc-icon" title="解答">✓</span><span class="toc-title">問4 解答 — 正解 D(ボラ低下で Z と OAS が接近)</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-32" class="toc-item" data-id="bu2-32" data-cat="toc" data-search="目次再掲 — 第Ⅲ問への切り替え 目次"><span class="toc-num">BU2-32</span><span class="toc-icon" title="目次">📑</span><span class="toc-title">目次再掲 — 第Ⅲ問への切り替え</span><span class="toc-memo-indicator" hidden>📝</span></a>
+</div>
+<div class="toc-chapter">
+<div class="toc-chapter-header">③ 第Ⅲ問 — 信用リスク・構造型モデル</div>
+<a href="#bu2-33" class="toc-item" data-id="bu2-33" data-cat="q-cover" data-search="問1扉 — 株式のオプション性とデフォルト確率 問題扉"><span class="toc-num">BU2-33</span><span class="toc-icon" title="問題扉">❓</span><span class="toc-title">問1扉 — 株式のオプション性とデフォルト確率</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-34" class="toc-item" data-id="bu2-34" data-cat="q-answer" data-search="問1 解答 — 株式 = 企業資産を原資産とするコール 解答"><span class="toc-num">BU2-34</span><span class="toc-icon" title="解答">✓</span><span class="toc-title">問1 解答 — 株式 = 企業資産を原資産とするコール</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-35" class="toc-item" data-id="bu2-35" data-cat="detail" data-search="深掘り — 株式のペイオフ図 Eᴛ = max(Aᴛ − F, 0) 深掘り"><span class="toc-num">BU2-35</span><span class="toc-icon" title="深掘り">🔍</span><span class="toc-title">深掘り — 株式のペイオフ図 Eᴛ = max(Aᴛ − F, 0)</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-36" class="toc-item" data-id="bu2-36" data-cat="q-answer" data-search="問1(2) 解答整理 — 株式 = オプション、デフォルト確率の導出(4 点) 解答"><span class="toc-num">BU2-36</span><span class="toc-icon" title="解答">✓</span><span class="toc-title">問1(2) 解答整理 — 株式 = オプション、デフォルト確率の導出(4…</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-37" class="toc-item" data-id="bu2-37" data-cat="q-answer" data-search="問1(2) 解答 — 記述答案の書き下し 解答"><span class="toc-num">BU2-37</span><span class="toc-icon" title="解答">✓</span><span class="toc-title">問1(2) 解答 — 記述答案の書き下し</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-38" class="toc-item" data-id="bu2-38" data-cat="q-cover" data-search="問2扉 — 満期時点の株式価値・負債価値・デフォルト確率 問題扉"><span class="toc-num">BU2-38</span><span class="toc-icon" title="問題扉">❓</span><span class="toc-title">問2扉 — 満期時点の株式価値・負債価値・デフォルト確率</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-39" class="toc-item" data-id="bu2-39" data-cat="q-answer" data-search="問2(1)(2) 解答 — AT=130 なら正常返済、AT=80 ならデフォルト 解答"><span class="toc-num">BU2-39</span><span class="toc-icon" title="解答">✓</span><span class="toc-title">問2(1)(2) 解答 — AT=130 なら正常返済、AT=80 なら…</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-40" class="toc-item" data-id="bu2-40" data-cat="q-answer" data-search="問2(3) 解答 — デフォルト確率 = N(−d₂) = 11.51% 解答"><span class="toc-num">BU2-40</span><span class="toc-icon" title="解答">✓</span><span class="toc-title">問2(3) 解答 — デフォルト確率 = N(−d₂) = 11.51%</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-41" class="toc-item" data-id="bu2-41" data-cat="q-cover" data-search="問3扉 — デフォルト距離の意味 問題扉"><span class="toc-num">BU2-41</span><span class="toc-icon" title="問題扉">❓</span><span class="toc-title">問3扉 — デフォルト距離の意味</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-42" class="toc-item" data-id="bu2-42" data-cat="q-answer" data-search="問3(1) 解答 — デフォルト距離 = 標準偏差単位の余裕度 解答"><span class="toc-num">BU2-42</span><span class="toc-icon" title="解答">✓</span><span class="toc-title">問3(1) 解答 — デフォルト距離 = 標準偏差単位の余裕度</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-43" class="toc-item" data-id="bu2-43" data-cat="detail" data-search="深掘り — デフォルト距離の図解(資産価値分布の左裾) 深掘り"><span class="toc-num">BU2-43</span><span class="toc-icon" title="深掘り">🔍</span><span class="toc-title">深掘り — デフォルト距離の図解(資産価値分布の左裾)</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-44" class="toc-item" data-id="bu2-44" data-cat="q-answer" data-search="問3(2) 解答 — ボラ上昇でデフォルト距離が縮み、確率が上がる 解答"><span class="toc-num">BU2-44</span><span class="toc-icon" title="解答">✓</span><span class="toc-title">問3(2) 解答 — ボラ上昇でデフォルト距離が縮み、確率が上がる</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-45" class="toc-item" data-id="bu2-45" data-cat="q-cover" data-search="問4扉 — 構造型モデルに関する理解(選択肢) 問題扉"><span class="toc-num">BU2-45</span><span class="toc-icon" title="問題扉">❓</span><span class="toc-title">問4扉 — 構造型モデルに関する理解(選択肢)</span><span class="toc-memo-indicator" hidden>📝</span></a>
+<a href="#bu2-46" class="toc-item" data-id="bu2-46" data-cat="summary" data-search="問4 解答 — 正解 C(株式 = コール → 信用リスクの統一的理解)+ 全体結語 まとめ"><span class="toc-num">BU2-46</span><span class="toc-icon" title="まとめ">🏁</span><span class="toc-title">問4 解答 — 正解 C(株式 = コール → 信用リスクの統一的理解)…</span><span class="toc-memo-indicator" hidden>📝</span></a>
+</div>
+</nav>
+</aside>
+
+<!-- ===== メイン ===== -->
+<main class="main">
+  <header class="cover">
+    <div class="cover-no">BU 答練 第 2 回 ／ 正本準拠版 / リッチカンペ</div>
+    <h1>BU 答練 第 2 回 統合スライドセリフ</h1>
+    <p class="subtitle">キーレート・デュレーション / オプション内蔵債 / 信用リスク(感応度 → オプション → 信用)</p>
+    <div class="meta-row">
+      <span>全 46 枚</span><span>約 185 分</span><span>3 コマ運用</span>
+    </div>
+  </header>
+
+  <div class="schedule"><h3>章構成 / 推奨 3 コマ運用</h3><div class="schedule-item"><span class="schedule-label">① 第Ⅰ問 — KRD と金利二項ツリー</span><span>BU2-3 〜 BU2-17 / 15 枚</span></div>
+<div class="schedule-item"><span class="schedule-label">② 第Ⅱ問 — オプション内蔵債・OAS</span><span>BU2-18 〜 BU2-32 / 15 枚</span></div>
+<div class="schedule-item"><span class="schedule-label">③ 第Ⅲ問 — 信用リスク・構造型モデル</span><span>BU2-33 〜 BU2-46 / 14 枚</span></div></div>
+
+  <div class="legend"><div class="legend-row tangent"><span class="legend-label">💡 余談</span><span>水色帯。試験対策の小ネタ(① 実務 / ② 市場史 / ③ 規制 / ④ CFA / ⑤ 学術)</span></div><div class="legend-row assist"><span class="legend-label">💬 口頭補足</span><span>暖色帯。スライドにない口頭での補い</span></div><div class="legend-keys">キーボード: <kbd>←</kbd><kbd>→</kbd> 前後 ・ <kbd>F</kbd> プレゼン ・ <kbd>D</kbd> ダーク ・ <kbd>/</kbd> 検索 ・ <kbd>M</kbd> メモ ・ <kbd>?</kbd> ヘルプ ・ <kbd>Esc</kbd> 戻る</div></div>
+
+
+<section class="slide" id="bu2-1" data-time="90" data-type="表紙" data-title="全体表紙 — ブラッシュアップ答練 Part 2">
+<div class="slide-header">
+<span class="slide-badge">BU2-1</span>
+<span class="slide-type">表紙</span>
+<span class="slide-time">228 字 / 約 1.5 分</span>
+</div>
+<h3 class="slide-title">全体表紙 — ブラッシュアップ答練 Part 2</h3>
+<hr class="slide-divider">
+<div class="script"><p>みなさん、こんにちは。今日のブラッシュアップ答練 Part 2 は、債券のリスク管理を一段深く掘り下げる回です。テーマは大きく 3 つ。第Ⅰ問がキーレート・デュレーションと金利二項ツリー、第Ⅱ問がオプション内蔵債と OAS、第Ⅲ問が信用リスクの構造型モデルです。</p>
+<p>Part 1 で扱った期間構造や二項ツリーが、そのまま今日の土台になります。金利の細かな感応度から、債券に埋め込まれたオプション、そして発行体が返せなくなる信用リスクまで。債券評価の 3 つの顔を、一日で見渡していきましょう。それではまず全体目次から確認します。</p></div>
+<div class="script-meta">228 字 / 約 1.5 分</div>
+</section>
+<section class="slide" id="bu2-2" data-time="90" data-type="目次" data-title="全体目次">
+<div class="slide-header">
+<span class="slide-badge">BU2-2</span>
+<span class="slide-type">目次</span>
+<span class="slide-time">193 字 / 約 1.5 分</span>
+</div>
+<h3 class="slide-title">全体目次</h3>
+<hr class="slide-divider">
+<div class="script"><p>これから扱う全体の目次です。Ⅰ が第Ⅰ問で、キーレート・デュレーションの考え方、10 年スポットレートに対する KRD の計算、それから再結合する金利二項ツリー、という 3 問構成。Ⅱ が第Ⅱ問で、コーラブル債とプッタブル債の価格特性、実効デュレーション、OAS、そして理解問題の 4 問構成。Ⅲ が第Ⅲ問で、株式のオプション性とデフォルト確率、満期時点の各価値、デフォルト距離、理解問題の 4 問構成です。各章の中身は、それぞれの章扉で改めて確認します。</p></div>
+<div class="script-meta">193 字 / 約 1.5 分</div>
+</section>
+<div class="chapter-banner first-chapter" id="q1"><div class="chapter-no">① 第Ⅰ問</div><h2>第Ⅰ問 — KRD と金利二項ツリー</h2><div class="chapter-meta">BU2-3 〜 BU2-17 / 15 枚</div></div>
+<section class="slide" id="bu2-3" data-time="90" data-type="問題扉" data-title="第Ⅰ問 問1扉 — キーレート・デュレーションの考え方">
+<div class="slide-header">
+<span class="slide-badge">BU2-3</span>
+<span class="slide-type">問題扉</span>
+<span class="slide-time">238 字 / 約 1.5 分</span>
+</div>
+<h3 class="slide-title">第Ⅰ問 問1扉 — キーレート・デュレーションの考え方</h3>
+<hr class="slide-divider">
+<div class="script"><p>それでは第Ⅰ問の問 1 に入ります。テーマはキーレート・デュレーション、略して KRD の考え方です。デュレーションという言葉自体は Part 1 でも出てきましたが、あのときの修正デュレーションは「イールドカーブ全体が平行に動いたとき」の感応度でした。今日の KRD は、そこから一歩踏み込んで「特定の年限の金利だけが動いたとき」の感応度を測る道具です。</p>
+<p>問 1 は穴埋め形式の定性問題で、修正デュレーションの前提と、KRD の発想を、用語を埋めながら対比させていく流れになっています。まずは言葉の整理からです。</p></div>
+<div class="script-meta">238 字 / 約 1.5 分</div>
+</section>
+<section class="slide" id="bu2-4" data-time="300" data-type="解答" data-title="問1 解答 — 穴埋め(パラレル・シフト/キーレート/KRD ほか)">
+<div class="slide-header">
+<span class="slide-badge">BU2-4</span>
+<span class="slide-type">解答</span>
+<span class="slide-time">本文 約 600 字 / 約 5 分</span>
+</div>
+<h3 class="slide-title">問1 解答 — 穴埋め(パラレル・シフト/キーレート/KRD ほか)</h3>
+<hr class="slide-divider">
+<div class="script"><p>空欄を順に埋めていきます。</p>
+<p>前半の①②③は「前提と道具」の流れです。①には、修正デュレーションが暗黙に置いている前提として「パラレル・シフト」が入ります。つまりカーブ全体が一律に上下する、という想定ですね。それに対して②は「キーレート」。年限ごとの基準金利のことで、ここでカーブを年限ごとに分解します。そして③が、その分解した各キーレートに対する感応度を測る道具、「KRD」です。パラレル想定で見ていたものを、キーレートで分解して、KRD で計測する。この 3 段の流れを押さえてください。</p>
+<p>後半の④⑤⑥は「対応関係」です。④には「線形補間」が入ります。キーレートとキーレートの間の金利は、線形補間で埋めるのが標準的なやり方ですね。⑤が「修正D」。各年限の KRD を全部足し合わせると、概ねこの修正デュレーションに戻る、という対応です。⑥が「利回り」。KRD は最終的に、利回りの変化に対する価格変化を年限ごとに測ったもの、という位置づけになります。</p>
+<p>ここで本試験の注意点を 1 つ。修正デュレーションと KRD は「対立する別物」ではなくて、「全体を見るか、年限ごとに分けるか」という解像度の違いなんです。両者の関係を問う選択肢が出たら、まず「足したら戻る」という関係を思い出してください。私も最初は別々の指標として丸暗記して、混乱しました。では、その違いを 1 枚で整理します。</p></div>
+<div class="script-meta">本文 約 600 字 / 約 5 分</div>
+</section>
+<section class="slide" id="bu2-5" data-time="360" data-type="深掘り" data-title="深掘り — 修正D の前提 vs KRD の年限独立調整">
+<div class="slide-header">
+<span class="slide-badge">BU2-5</span>
+<span class="slide-type">深掘り</span>
+<span class="slide-time">本文 約 560 字 + 余談 ④ 約 230 字 / 約 6 分</span>
+</div>
+<h3 class="slide-title">深掘り — 修正D の前提 vs KRD の年限独立調整</h3>
+<hr class="slide-divider">
+<div class="script"><p>問 1 で答えた内容を、対比の形でもう一度整理します。</p>
+<p>左が修正デュレーション。これは満期利回り、YTM の微小変化に対する価格の感応度でした。ただし、その裏には「カーブが一律にシフトする」という近似が入っています。だから、短期だけ動いて長期は動かない、といった局所的な変化には対応できないんですね。カーブの形が変わる動きを、修正Dは捉えられない。これが弱点です。</p>
+<p>右が KRD。こちらは年限ごとに独立に分解します。2 年の金利が動いたら 2 年の KRD、10 年の金利が動いたら 10 年の KRD、というふうに、年限という解像度でリスクを切り分ける。だからカーブが平行に動こうが、傾こうが、曲がろうが、それぞれの年限の寄与として把握できます。</p>
+<p>一言でまとめると、修正Dは「カーブを 1 本の棒として見る」、KRD は「カーブを年限ごとの節に分けて見る」。同じ金利リスクを、粗く見るか、細かく見るか、という違いです。この対比が、このあとの計算問題すべての土台になります。</p></div>
+<aside class="tangent">
+<div class="tangent-header">💡 余談 ④ CFA</div>
+<div class="tangent-body"><p>ちなみにこの KRD、CFA でも Level II の Fixed Income で「key rate duration」あるいは「partial duration」として登場します。CFA では「effective duration がカーブの平行移動を前提にする」という限界をまず教えて、その補完として KRD を位置づける、という説明の順番なんです。証アナでこの「平行移動の前提 → 年限分解」という流れを腹落ちさせておくと、CFA に進んだときもそのまま通用します。出題形式が記述か 4 択かの違いだけですね。</p></div>
+</aside>
+<div class="script-meta">本文 約 560 字 + 余談 ④ 約 230 字 / 約 6 分</div>
+</section>
+<section class="slide" id="bu2-6" data-time="90" data-type="問題扉" data-title="問2扉 — 10 年スポットレートに対する KRD">
+<div class="slide-header">
+<span class="slide-badge">BU2-6</span>
+<span class="slide-type">問題扉</span>
+<span class="slide-time">218 字 / 約 1.5 分</span>
+</div>
+<h3 class="slide-title">問2扉 — 10 年スポットレートに対する KRD</h3>
+<hr class="slide-divider">
+<div class="script"><p>続いて問 2 に入ります。今度は計算問題で、ある国債の 10 年キーレート・デュレーション、KRD10 を実際に求めます。4 つの段階に分かれていて、(1) で割引債のマコーレー・デュレーション、(2) で修正デュレーション、(3) で 10 年部分の現在価値、(4) でいよいよ KRD10 本体、という積み上げ式の構成です。</p>
+<p>対象は残存 10 年、クーポン 3.5% の国債です。前段で求めた値を次の段でそのまま使っていきますから、途中の数字を取り違えないように、ひとつずつ丁寧に追っていきましょう。それでは Step 1 から見ていきます。</p></div>
+<div class="script-meta">218 字 / 約 1.5 分</div>
+</section>
+<section class="slide" id="bu2-7" data-time="240" data-type="解答" data-title="問2(1) 解答 — 割引債の Macaulay D = 残存期間">
+<div class="slide-header">
+<span class="slide-badge">BU2-7</span>
+<span class="slide-type">解答</span>
+<span class="slide-time">本文 約 480 字 / 約 4 分</span>
+</div>
+<h3 class="slide-title">問2(1) 解答 — 割引債の Macaulay D = 残存期間</h3>
+<hr class="slide-divider">
+<div class="script"><p>(1) は、割引債のマコーレー・デュレーションを求める問題です。</p>
+<p>マコーレー・デュレーションの定義式は、D イコール、シグマ ti かける、カッコ PVi 割る P。各キャッシュフローが発生する時点 ti を、その現在価値の割合で加重平均したもの、という意味です。要するに「お金が回収される時間的な重心」を表しています。</p>
+<p>ここがポイントなんですが、割引債、つまりゼロクーポン債は、途中の利払いがありません。満期に一度だけキャッシュフローが発生する。ということは、加重平均の項が 1 つしかないわけです。重心も何も、回収のタイミングが満期 T の一点しかないので、D はそのまま満期 T に等しくなる。Step 2、満期 T イコール 10 を代入して、D イコール 10 です。</p>
+<p>言葉で言い直すと、ゼロクーポン債のマコーレー・デュレーションは残存期間そのもの。これは公式というより、定義から当たり前に出てくる性質です。「割引債のデュレーションは残存年数」と覚えてしまって構いませんが、なぜそうなるかは、今の「項が 1 つしかない」という説明で押さえておいてください。では (2) で修正デュレーションに直します。</p></div>
+<div class="script-meta">本文 約 480 字 / 約 4 分</div>
+</section>
+<section class="slide" id="bu2-8" data-time="240" data-type="解答" data-title="問2(2) 解答 — 修正 D = Macaulay D / (1 + y)">
+<div class="slide-header">
+<span class="slide-badge">BU2-8</span>
+<span class="slide-type">解答</span>
+<span class="slide-time">本文 約 500 字 / 約 4 分</span>
+</div>
+<h3 class="slide-title">問2(2) 解答 — 修正 D = Macaulay D / (1 + y)</h3>
+<hr class="slide-divider">
+<div class="script"><p>(2) は、いま求めたマコーレー・デュレーションを、修正デュレーションに変換する問題です。</p>
+<p>修正デュレーションの公式は、DM イコール、D 割る、カッコ 1 プラス y。マコーレー・デュレーションを、1 足す利回り y で割るだけです。ここで y は割引債の利回りですね。</p>
+<p>Step 2、値を代入します。D が前問の 10、1 足す y がここでは 1.0361 と与えられていますから、10 割る 1.0361。これを計算すると、9.651 となって、DM はおよそ 9.65 です。</p>
+<p>押さえておきたいのは、マコーレーと修正の違いです。マコーレーが「時間の重心」という年数そのものの概念なのに対して、修正デュレーションは「利回りが 1% 動いたとき価格が何% 動くか」という感応度の概念に変換したもの。1 足す y で割るという操作が、ちょうどその橋渡しをしています。だから修正Dの方が、マコーレーよりわずかに小さくなる。ここは符号や大小を問う選択肢で狙われやすいので、「修正の方が少し小さい」と手で覚えておくと安心です。次は 10 年部分の現在価値を出します。</p></div>
+<div class="script-meta">本文 約 500 字 / 約 4 分</div>
+</section>
+<section class="slide" id="bu2-9" data-time="270" data-type="解答" data-title="問2(3) 解答 — PV = 将来CF × 割引係数">
+<div class="slide-header">
+<span class="slide-badge">BU2-9</span>
+<span class="slide-type">解答</span>
+<span class="slide-time">本文 約 560 字 / 約 4.5 分</span>
+</div>
+<h3 class="slide-title">問2(3) 解答 — PV = 将来CF × 割引係数</h3>
+<hr class="slide-divider">
+<div class="script"><p>(3) は、この債券の 10 年部分、つまり満期に返ってくる最終キャッシュフローの現在価値を求める問題です。</p>
+<p>現在価値の公式はシンプルで、PV イコール、CF かける d。将来キャッシュフロー CF に、割引係数 d を掛けるだけです。割引係数というのは、将来の 1 円を今の価値に直すための掛け目ですね。</p>
+<p>Step 2、代入します。10 年後の最終キャッシュフローは、クーポン 3.5 円に元本 100 円を足した、元利合計 103.50 円。これに 10 年の割引係数 0.7015 を掛けます。103.50 かける 0.7015 で、72.605。整理して、PV はおよそ 72.61 円です。</p>
+<p>ここで頭に入れておいてほしいのが、クーポン 1 年分から 9 年分にも、それぞれ別途現在価値がある、ということです。ただし本問で必要なのは 10 年部分だけ。なぜなら、いま測りたいのは 10 年キーレート・デュレーションで、これに寄与するのは「10 年後に返ってくるキャッシュフロー」だけだからです。1 年から 9 年のクーポンは、それぞれ 1 年から 9 年の KRD に寄与するので、ここでは脇に置いておく。この「どのキャッシュフローがどの年限に効くか」という切り分けが、KRD の核心です。では、いよいよ KRD10 を計算します。</p></div>
+<div class="script-meta">本文 約 560 字 / 約 4.5 分</div>
+</section>
+<section class="slide" id="bu2-10" data-time="300" data-type="解答" data-title="問2(4) 解答 — 10 年キーレート・デュレーション KRD₁₀ ≈ 7.01">
+<div class="slide-header">
+<span class="slide-badge">BU2-10</span>
+<span class="slide-type">解答</span>
+<span class="slide-time">本文 約 720 字 / 約 5 分</span>
+</div>
+<h3 class="slide-title">問2(4) 解答 — 10 年キーレート・デュレーション KRD₁₀ ≈ 7.01</h3>
+<hr class="slide-divider">
+<div class="script"><p>前のスライドで、10 年後の最終キャッシュフローの現在価値を 72.61 円と出しました。これで材料が揃いましたから、いよいよ 10 年キーレート・デュレーション、KRD10 の本体を計算します。</p>
+<p>使う式はシンプルです。KRD10 は、10 年部分の現在価値を債券価格で割った比率に、割引債の修正デュレーションを掛けたもの。言葉にすると、「10 年部分が全体の何割を占めるか」という重みに、「割引債としての金利感応度」を掛ける、という形ですね。</p>
+<p>Step 1、式の形を確認します。PV 比率は、72.61 を 100.00 で割って 0.7261。修正Dは前に求めた 9.65。ですから KRD10 イコールおよそ 0.7261 かける 9.65、となります。Step 2、実際に掛けます。0.7261 かける 9.65 で、7.0068。整理して、KRD10 はおよそ 7.01 です。</p>
+<p>この 7.01 の意味をきちんと押さえてください。10 年のスポットレートだけが 1% 動いたときに、この債券価格が約 7.01% 変化する、ということです。向きで言えば、10 年金利が上がれば価格は約 7.01% 下落、下がれば約 7.01% 上昇します。修正デュレーションが「カーブ全体が平行に動いたとき」の感応度だったのに対して、KRD は「10 年という 1 点の金利だけが動いたとき」のピンポイントな感応度。ここが両者の決定的な違いです。</p>
+<p>ちなみに本試験で引っかかりやすいのが、PV 比率を取り忘れて、修正Dの 9.65 をそのまま答えにしてしまうケース。KRD は必ず「その年限が全体に占める重み」を掛けてから出す、と手順で覚えてください。私も最初は比率を飛ばしかけました。では、この計算を分解して全体像を整理します。</p></div>
+<div class="script-meta">本文 約 720 字 / 約 5 分</div>
+</section>
+<section class="slide" id="bu2-11" data-time="420" data-type="深掘り" data-title="深掘り — KRD の分解「PV比率 × 修正D」とキャッシュフロー構造">
+<div class="slide-header">
+<span class="slide-badge">BU2-11</span>
+<span class="slide-type">深掘り</span>
+<span class="slide-time">本文 約 880 字 + 余談 ⑤ 約 220 字 / 約 7 分</span>
+</div>
+<h3 class="slide-title">深掘り — KRD の分解「PV比率 × 修正D」とキャッシュフロー構造</h3>
+<hr class="slide-divider">
+<div class="script"><p>いま出した KRD10 の計算を、4 つのステップに分けて 1 枚に整理します。①PV 比率、②修正D、③掛け算、④KRD10、という流れですね。</p>
+<p>①PV 比率は、72.61 を 100.00 で割った 0.7261。これは「10 年部分が債券価格全体の中で持つ重み」です。②修正Dは 9.65。これは 10 年後に一括で返ってくるキャッシュフローを、それ単独で見たときの金利感応度。③この 2 つを掛けて、④KRD10 が 7.01。つまり KRD は「重み 掛ける 単独の感応度」という、寄与度の発想で組み立てられているわけです。</p>
+<p>下のキャッシュフロー構造の図も見てください。この債券は残存 10 年、クーポン 3.5%。1 年目から 9 年目まで 3.5 円ずつのクーポンがあって、10 年目に元利合計 103.5 円が返ってきます。今回注目した 10 年部分の現在価値が 72.61 円で、これが価格全体の 72.6% を占めています。残りのクーポン、1 年分から 9 年分は、それぞれ KRD1、KRD2、……KRD9 に独立して寄与します。</p>
+<p>ここで大事な性質が 1 つあります。各年限の KRD を全部足し合わせると、ほぼ修正デュレーションに戻るんです。KRD は「そのキャッシュフローが、どの年限のスポットレートに依存しているか」を年限ごとにバラして測ったもの。ですから全部足せば、結局カーブ全体への感応度、つまり修正Dに近づきます。ただし、基準金利の取り方、補間方式、複利方式の違いで、厳密にはピタリと一致はしません。「ほぼ一致するが、完全一致ではない」と押さえてください。</p></div>
+<aside class="tangent">
+<div class="tangent-header">💡 余談 ⑤ 学術</div>
+<div class="tangent-body"><p>このキーレート・デュレーションという考え方、実は 1992 年に Thomas Ho という研究者が体系化したものなんです。それまでデュレーションには「カーブが平行移動する」という前提が暗黙にありました。ところが現実のイールドカーブは平行には動かない。短期だけ動いたり、長期だけ動いたりする。そこで「年限ごとにバラして感応度を測ろう」と提案したのが KRD の出発点です。試験では年号や人名までは問われませんが、「平行移動の前提を外したのが KRD」という位置づけを押さえると、修正Dとの違いがすっきりします。</p></div>
+</aside>
+<div class="script-meta">本文 約 880 字 + 余談 ⑤ 約 220 字 / 約 7 分</div>
+</section>
+<section class="slide" id="bu2-12" data-time="90" data-type="問題扉" data-title="問3扉 — 再結合する金利二項ツリー">
+<div class="slide-header">
+<span class="slide-badge">BU2-12</span>
+<span class="slide-type">問題扉</span>
+<span class="slide-time">248 字 / 約 1.5 分</span>
+</div>
+<h3 class="slide-title">問3扉 — 再結合する金利二項ツリー</h3>
+<hr class="slide-divider">
+<div class="script"><p>第Ⅰ問の最後、問 3 に進みます。テーマは再結合する金利二項ツリーです。Part 1 でも二項ツリーは扱いましたが、今回は「再結合」、つまりリコンビニングという仕掛けに焦点が当たります。</p>
+<p>二項ツリーというのは、金利が 1 期ごとに上か下かに分岐していくモデルですね。普通に分岐させると枝はどんどん増えていきますが、「上がってから下がる」と「下がってから上がる」が同じ点に戻ってくるように作ると、ノードの数が爆発せずに済む。これが再結合です。問 3 では、この再結合の条件を、期待値と標準偏差という 2 つの式から決めていきます。まずは 1 年後から 2 年後への期待値計算から入ります。</p></div>
+<div class="script-meta">248 字 / 約 1.5 分</div>
+</section>
+<section class="slide" id="bu2-13" data-time="300" data-type="解答" data-title="問3(1) 解答 — Δt=1 ならドリフト項で期待値が決まる">
+<div class="slide-header">
+<span class="slide-badge">BU2-13</span>
+<span class="slide-type">解答</span>
+<span class="slide-time">本文 約 660 字 / 約 5 分</span>
+</div>
+<h3 class="slide-title">問3(1) 解答 — Δt=1 ならドリフト項で期待値が決まる</h3>
+<hr class="slide-divider">
+<div class="script"><p>(1) は、下落ノードから出発したときの、2 年後の短期金利の期待値を求める問題です。</p>
+<p>まず前提条件を確認します。現在の短期金利 r0 が 1.00%、長期回帰水準 θ シータが 2.00%、調整速度 κ カッパが 0.3、金利ボラティリティ σ シグマが 0.50%、そして時間刻み Δt が 1。1 年後は上昇ノードが 1.80%、下落ノード r1d が 0.80% と分岐します。</p>
+<p>離散化したモデルの期待値の式は、E、カッコ r2 縦棒 r1d、イコール、r1d プラス、κ かける、カッコ θ マイナス r1d、かける Δt。いまの金利 r1d に、平均回帰の調整分を足す、という形ですね。第 1 項が現在の水準、第 2 項が θ に引き戻すドリフトです。</p>
+<p>Step 2、代入します。r1d が 0.80%、θ が 2.00%、κ が 0.3、Δt が 1。0.80% プラス、0.3 かける、カッコ 2.00% マイナス 0.80%。カッコの中が 1.20% で、それに 0.3 を掛けると 0.36%。これを 0.80% に足して、答えは 1.16% です。</p>
+<p>ここで押さえてほしいのが、Δt が 1 のときは、期待値がドリフト項だけで決まる、という点です。ボラティリティ σ はあくまで「ばらつき」を表すもので、期待値そのものには効きません。σ が出てくるのは次の標準偏差の条件式です。期待値と分散、それぞれどの要素が効くのかを切り分けておくと、このあとの連立方程式で迷いません。では再結合の構造を図で確認します。</p></div>
+<div class="script-meta">本文 約 660 字 / 約 5 分</div>
+</section>
+<section class="slide" id="bu2-14" data-time="390" data-type="深掘り" data-title="深掘り — 再結合ツリーの構造(t=0, 1, 2)">
+<div class="slide-header">
+<span class="slide-badge">BU2-14</span>
+<span class="slide-type">深掘り</span>
+<span class="slide-time">本文 約 700 字 + 余談 ⑤ 約 230 字 / 約 6.5 分</span>
+</div>
+<h3 class="slide-title">深掘り — 再結合ツリーの構造(t=0, 1, 2)</h3>
+<hr class="slide-divider">
+<div class="script"><p>再結合ツリーの全体像を図で見ていきます。出発点 t イコール 0 で、現在の短期金利 r0 が 1.00%。1 期進んで t イコール 1 で、上昇ノード r1u が 1.80%、下落ノード r1d が 0.80% に分岐します。</p>
+<p>さらに 1 期進んだ t イコール 2 を見てください。本来なら 4 つのノードに分かれるはずですが、真ん中の 2 つ、つまり「上がってから下がった点」と「下がってから上がった点」が、同じ 1 点に重なっています。これが再結合です。一番上が r2uu で 2.57%、真ん中の再結合ノードが 1.51%、一番下が r2dd で 0.4457%。4 つに分かれず 3 つに収まっているのが、再結合の効果ですね。</p>
+<p>ここで効いてくるのが、さっき問 3(1) で求めた期待値 1.16% です。下落ノードから出発した 2 年後の期待値は 1.16% でなければならない。ところが、下落ノードからの行き先は、再結合ノードの 1.51% と、一番下の r2dd の 2 つ。この 2 つを確率で加重平均して 1.16% に合わせる必要があります。その遷移確率を Qdu、行き先の値を Rdd と呼んで、次のスライドで期待値と分散の 2 本の式から決めていきます。図の右下に Qdu が 67.11% と出ていますが、これがまさにこれから求める値です。</p></div>
+<aside class="tangent">
+<div class="tangent-header">💡 余談 ⑤ 学術</div>
+<div class="tangent-body"><p>この「再結合させる」という発想、実は 1979 年のコックス・ロス・ルビンシュタイン、いわゆる CRR の二項モデルが出発点になっています。彼らがオプション評価のために作った二項格子が、再結合する作りだったんですね。なぜ再結合が大事かというと、再結合しないツリーはノードが 2 のべき乗で増えて、10 期で 1024 個、20 期で 100 万個と爆発してしまう。再結合させると 10 期でも 11 個で済みます。試験では小さなツリーしか出ませんが、実務で多期間のモデルを回すときには、この計算量の差が決定的になります。</p></div>
+</aside>
+<div class="script-meta">本文 約 700 字 + 余談 ⑤ 約 230 字 / 約 6.5 分</div>
+</section>
+<section class="slide" id="bu2-15" data-time="240" data-type="問題扉" data-title="問3(2)(3) 扉 — 連立条件式(期待値・標準偏差)">
+<div class="slide-header">
+<span class="slide-badge">BU2-15</span>
+<span class="slide-type">問題扉</span>
+<span class="slide-time">本文 約 520 字 / 約 4 分</span>
+</div>
+<h3 class="slide-title">問3(2)(3) 扉 — 連立条件式(期待値・標準偏差)</h3>
+<hr class="slide-divider">
+<div class="script"><p>(2) と (3) は、いま図で見た下落ノードからの遷移を、2 本の条件式から決める問題です。未知数は 2 つ、再結合の下側の行き先 Rdd と、再結合ノードへ行く確率 Qdu。未知数が 2 つなら、式も 2 本必要ですね。その 2 本が、期待値の条件と標準偏差の条件です。</p>
+<p>1 本目、期待値の条件。Qdu かける 1.51%、足す、カッコ 1 マイナス Qdu、かける Rdd、これが 1.16% に等しい。再結合ノードへ行く確率と、下へ行く確率で加重平均した値が、さっき求めた期待値 1.16% になる、という式です。</p>
+<p>2 本目、標準偏差の条件。Qdu かける、カッコ 1.51% マイナス 1.16% の 2 乗、足す、カッコ 1 マイナス Qdu、かける、カッコ Rdd マイナス 1.16% の 2 乗、これの平方根が 0.50% に等しい。これは、期待値 1.16% からのばらつきが、モデルのボラティリティ 0.50% と一致するように、という条件ですね。期待値で中心を、標準偏差で散らばりを揃える。この 2 つで再結合ノードの構造が一意に決まります。では次のスライドで実際に解きます。</p></div>
+<div class="script-meta">本文 約 520 字 / 約 4 分</div>
+</section>
+<section class="slide" id="bu2-16" data-time="300" data-type="解答" data-title="問3(2)(3) 解答 — Rdd ≈ 0.4457%、Qdu ≈ 67.11%">
+<div class="slide-header">
+<span class="slide-badge">BU2-16</span>
+<span class="slide-type">解答</span>
+<span class="slide-time">本文 約 640 字 / 約 5 分</span>
+</div>
+<h3 class="slide-title">問3(2)(3) 解答 — Rdd ≈ 0.4457%、Qdu ≈ 67.11%</h3>
+<hr class="slide-divider">
+<div class="script"><p>それでは連立方程式を解いていきます。</p>
+<p>Step 1、まず期待値の式を変形して、Rdd を Qdu で表します。カッコ 1 マイナス Qdu、かける Rdd、イコール、1.16% マイナス、Qdu かける 1.51%。これで Rdd が Qdu の式として書けますね。</p>
+<p>Step 2、これを標準偏差の式に代入します。標準偏差の式の中身、1.51% マイナス 1.16% は 0.35% です。ですから、0.35 の 2 乗かける Qdu、足す、カッコ Rdd マイナス 1.16 の 2 乗かける、カッコ 1 マイナス Qdu、これが 0.50 の 2 乗。Step 1 の関係を入れて Qdu について整理して解くと、Qdu はおよそ 0.6711、つまり 67.11% と出ます。これを Step 1 の式に戻すと、Rdd はおよそ 0.4457% です。</p>
+<p>結論として、Rdd が 0.4457%、Qdu が 67.11%。これで再結合ツリーの下側の構造が完全に決まりました。手計算で 2 乗の入った連立を解くのは骨が折れますが、本試験では多くの場合、途中の数値が与えられるか、選択肢から逆算できる形になっています。ですから「期待値と標準偏差の 2 本で未知数 2 つを決める」という枠組みさえ押さえておけば、計算自体は誘導に乗れば追えます。ここで第Ⅰ問は終わりです。一度区切って、第Ⅱ問のオプション内蔵債へ進みましょう。</p></div>
+<div class="script-meta">本文 約 640 字 / 約 5 分</div>
+</section>
+<section class="slide" id="bu2-17" data-time="60" data-type="目次" data-title="目次再掲 — 第Ⅱ問への切り替え">
+<div class="slide-header">
+<span class="slide-badge">BU2-17</span>
+<span class="slide-type">目次</span>
+<span class="slide-time">157 字 / 約 1 分</span>
+</div>
+<h3 class="slide-title">目次再掲 — 第Ⅱ問への切り替え</h3>
+<hr class="slide-divider">
+<div class="script"><p>全体目次に戻ります。第Ⅰ問では、金利の感応度を年限ごとに測る KRD と、それを支える再結合二項ツリーを見てきました。次の第Ⅱ問は、債券にオプションが埋め込まれているケース、つまりコーラブル債やプッタブル債を扱います。発行体が期限前に償還する権利を持つ場合と、投資家が買い取りを請求する権利を持つ場合とで、価格や感応度がどう変わるか。視点をオプションに移していきます。</p></div>
+<div class="script-meta">157 字 / 約 1 分</div>
+</section>
+<div class="chapter-end">— 区切り —</div>
+<div class="chapter-banner" id="q2"><div class="chapter-no">② 第Ⅱ問</div><h2>第Ⅱ問 — オプション内蔵債・OAS</h2><div class="chapter-meta">BU2-18 〜 BU2-32 / 15 枚</div></div>
+<section class="slide" id="bu2-18" data-time="90" data-type="問題扉" data-title="問1扉 — コーラブル債とプッタブル債の価格特性">
+<div class="slide-header">
+<span class="slide-badge">BU2-18</span>
+<span class="slide-type">問題扉</span>
+<span class="slide-time">258 字 / 約 1.5 分</span>
+</div>
+<h3 class="slide-title">問1扉 — コーラブル債とプッタブル債の価格特性</h3>
+<hr class="slide-divider">
+<div class="script"><p>第Ⅱ問の問 1 に入ります。テーマはコーラブル債とプッタブル債の価格特性です。</p>
+<p>まず言葉を確認します。コーラブル債は、発行体が途中で繰り上げ償還できる権利、コール・オプションが付いた債券。つまり投資家から見ると、自分が発行体にコールを売っている状態です。プッタブル債は逆で、投資家が途中で発行体に買い取りを請求できる権利、プット・オプションが付いた債券。こちらは投資家がプットを持っている状態です。誰がどちらのオプションを持っているか。ここが価格特性のすべての出発点になります。問 1 では、金利が動いたときに、この 2 つの債券がどう違う振る舞いをするかを見ていきます。</p></div>
+<div class="script-meta">258 字 / 約 1.5 分</div>
+</section>
+<section class="slide" id="bu2-19" data-time="300" data-type="解答" data-title="問1 解答 — 金利上昇時はコーラブル債の下落幅が大きい">
+<div class="slide-header">
+<span class="slide-badge">BU2-19</span>
+<span class="slide-type">解答</span>
+<span class="slide-time">本文 約 680 字 / 約 5 分</span>
+</div>
+<h3 class="slide-title">問1 解答 — 金利上昇時はコーラブル債の下落幅が大きい</h3>
+<hr class="slide-divider">
+<div class="script"><p>問 1 の結論から言うと、金利が上昇したとき、価格の下落幅が大きいのはコーラブル債です。なぜそうなるか、オプションの主導権という観点で解きほぐします。</p>
+<p>まずコーラブル債。金利が上がると、発行体はわざわざ高い金利の今、繰り上げ償還する動機が薄れます。つまりコールは行使されにくくなる。コールが行使されないということは、その債券は満期までの長い期間、たとえば残存 5 年分の金利リスクをそのまま抱えることになります。結果として、ほぼ 5 年債と同じ、大きな値動きをする。だから金利上昇時の下落が大きいんですね。</p>
+<p>次にプッタブル債。金利が上がると、投資家は「今の低い価格で持ち続けるより、額面で買い取ってもらおう」と考えて、プットを行使しやすくなります。プットが効くことで下値が支えられる。だから値動きはマイルドで、ほぼ 2 年債のような短い債券に近い動きになります。</p>
+<p>全体像としては、コーラブル債もプッタブル債も、その価格は概ね「同じ条件の 2 年債」と「5 年債」の間に挟まれる、と捉えてください。オプションが効く方向に応じて、5 年債寄りになるか 2 年債寄りになるかが決まる。「金利上昇時の下落が大きいのはコーラブル債」という結論は、この主導権の理屈とセットで覚えておくと、選択肢の引っ掛けに強くなります。では価格と利回りの関係を曲線で見てみましょう。</p></div>
+<div class="script-meta">本文 約 680 字 / 約 5 分</div>
+</section>
+<section class="slide" id="bu2-20" data-time="420" data-type="深掘り" data-title="深掘り — 価格 vs 利回り 3 曲線(通常債/コーラブル/プッタブル)">
+<div class="slide-header">
+<span class="slide-badge">BU2-20</span>
+<span class="slide-type">深掘り</span>
+<span class="slide-time">本文 約 720 字 + 余談 ② 約 250 字 / 約 7 分</span>
+</div>
+<h3 class="slide-title">深掘り — 価格 vs 利回り 3 曲線(通常債/コーラブル/プッタブル)</h3>
+<hr class="slide-divider">
+<div class="script"><p>価格と利回りの関係を、3 種類の債券で比べた図です。横軸が利回り、縦軸が価格ですね。</p>
+<p>まず一番素直なのが通常債、オプションが付いていない債券です。これは右下がりで、なめらかに凸性のある標準的な曲線を描きます。利回りが下がれば価格が上がり、利回りが上がれば価格が下がる。この曲線が基準になります。</p>
+<p>コーラブル債の曲線を見てください。利回りが下がっていく、つまり金利が低下していく局面で、価格に上限が現れます。なぜなら、金利が下がると発行体がコールを行使して繰り上げ償還してしまうので、価格がそれ以上は上がらない。だから左側、低利回りのゾーンで、曲線が天井にぶつかって寝てしまうんですね。</p>
+<p>プッタブル債は逆です。利回りが上がっていく、つまり金利上昇の局面で、価格に下限が現れます。投資家がプットを行使して額面で売れるので、価格がそれ以上は下がらない。だから右側、高利回りのゾーンで、曲線が床で支えられて寝る形になります。</p>
+<p>要するに、コーラブルは金利低下で上値が抑えられ、プッタブルは金利上昇で下値が支えられる。この曲線の「どちら側が寝るか」を覚えておけば、価格特性は一目で再現できます。次は、この非線形な動きを数値で測る実効デュレーションに進みます。</p></div>
+<aside class="tangent">
+<div class="tangent-header">💡 余談 ② 市場史</div>
+<div class="tangent-body"><p>このコーラブル債の繰り上げ償還リスク、実は 1980 年代から 90 年代のアメリカの住宅ローン担保証券、MBS の世界で、運用業界を大いに悩ませてきた論点なんです。金利が下がると住宅ローンの借り換えが一斉に起きて、MBS が予定より早く償還されてしまう。期限前償還、プリペイメントと呼ばれる現象ですね。投資家は「金利が下がって嬉しいはずなのに、高利回りの資産が消えてしまう」というジレンマに直面しました。コーラブル債の価格に天井ができる、という今日の話は、そのまま MBS のプリペイメント・リスクの縮図になっています。</p></div>
+</aside>
+<div class="script-meta">本文 約 720 字 + 余談 ② 約 250 字 / 約 7 分</div>
+</section>
+<section class="slide" id="bu2-21" data-time="90" data-type="問題扉" data-title="問2扉 — 実効デュレーション">
+<div class="slide-header">
+<span class="slide-badge">BU2-21</span>
+<span class="slide-type">問題扉</span>
+<span class="slide-time">218 字 / 約 1.5 分</span>
+</div>
+<h3 class="slide-title">問2扉 — 実効デュレーション</h3>
+<hr class="slide-divider">
+<div class="script"><p>問 2 に進みます。テーマは実効デュレーションです。</p>
+<p>さきほど図で見たとおり、オプション内蔵債の価格曲線は、途中で寝てしまう、つまり折れ曲がる非線形な形でした。こういう債券には、通常の修正デュレーションがうまく使えません。修正デュレーションは、なめらかな曲線を前提にした感応度だからです。そこで使うのが実効デュレーション。金利を実際に少し上げたとき、下げたときの価格を比べて、その差から感応度を測る、という実測ベースの考え方です。問 2 では、与えられた価格から実効デュレーションを計算します。</p></div>
+<div class="script-meta">218 字 / 約 1.5 分</div>
+</section>
+<section class="slide" id="bu2-22" data-time="270" data-type="解答" data-title="問2(1) 解答 — 実効デュレーションの定義式">
+<div class="slide-header">
+<span class="slide-badge">BU2-22</span>
+<span class="slide-type">解答</span>
+<span class="slide-time">本文 約 530 字 / 約 4.5 分</span>
+</div>
+<h3 class="slide-title">問2(1) 解答 — 実効デュレーションの定義式</h3>
+<hr class="slide-divider">
+<div class="script"><p>(1) は、実効デュレーションの定義を確認する問題です。</p>
+<p>公式は、実効D イコール、カッコ P マイナス、マイナス P プラス、を、P0 かける 2Δy、で割ったもの。記号を読み下します。P マイナスは、金利を少し下げたときの価格。P プラスは、金利を少し上げたときの価格。P0 は現在の価格。Δy は金利の変化幅です。</p>
+<p>与えられた量を確認しましょう。現在価格 P0 が 98.55 円。金利を下げたときの価格 P マイナスが 98.59 円。金利を上げたときの価格 P プラスが 98.51 円。そして変化幅 Δy が 0.0001、つまり 1 ベーシス・ポイント、1bp です。</p>
+<p>考え方のポイントは、「金利を下げたときの価格」から「金利を上げたときの価格」を引いて、価格がどれだけ動いたかを測り、それを現在価格と変化幅で標準化している、という点です。修正デュレーションが微分、つまり接線の傾きで感応度を出すのに対して、実効デュレーションは「実際に上下に動かして差を取る」差分の発想。だからオプションで曲線が折れていても測れるんですね。では実際に数値を入れます。</p></div>
+<div class="script-meta">本文 約 530 字 / 約 4.5 分</div>
+</section>
+<section class="slide" id="bu2-23" data-time="270" data-type="解答" data-title="問2(2) 解答 — 実効デュレーション ≈ 4.06">
+<div class="slide-header">
+<span class="slide-badge">BU2-23</span>
+<span class="slide-type">解答</span>
+<span class="slide-time">本文 約 560 字 / 約 4.5 分</span>
+</div>
+<h3 class="slide-title">問2(2) 解答 — 実効デュレーション ≈ 4.06</h3>
+<hr class="slide-divider">
+<div class="script"><p>(2) は、いまの定義式に数値を代入して、実効デュレーションを求める問題です。</p>
+<p>Step 1、公式に値を入れます。分子は、P マイナス引く P プラスで、98.59 マイナス 98.51。分母は、P0 かける 2Δy で、98.55 かける、2 かける 0.0001、つまり 98.55 かける 0.0002 です。</p>
+<p>Step 2、計算します。分子は 98.59 マイナス 98.51 で 0.08。分母は 98.55 かける 0.0002 で、0.01971。0.08 割る 0.01971 で、4.058。整理して、実効デュレーションはおよそ 4.06 です。</p>
+<p>ここで本試験の注意点を 1 つ。分母の 2Δy、この「2 倍」を忘れる人が非常に多いんです。金利を下げた分と上げた分、両側で合計 2 倍の幅を動かしているので、必ず 2 を掛けます。Δy だけで割ると、答えがちょうど 2 倍ずれてしまう。私も初見で 2 を落として、選択肢に「8.1」みたいな倍の値があると、まんまと引っかかりかけました。分母は「2 Δy」、と口に出して確認する癖をつけてください。では、このコーラブル債の実効デュレーションが、なぜ小さく出るのかを次で見ます。</p></div>
+<div class="script-meta">本文 約 560 字 / 約 4.5 分</div>
+</section>
+<section class="slide" id="bu2-24" data-time="420" data-type="解答" data-title="問2(3) 解答 — なぜコーラブル債は実効デュレーションが小さいのか">
+<div class="slide-header">
+<span class="slide-badge">BU2-24</span>
+<span class="slide-type">解答</span>
+<span class="slide-time">本文 約 660 字 + 余談 ③ 約 280 字 / 約 7 分</span>
+</div>
+<h3 class="slide-title">問2(3) 解答 — なぜコーラブル債は実効デュレーションが小さいのか</h3>
+<hr class="slide-divider">
+<div class="script"><p>(3) は、コーラブル債の実効デュレーションが、オプションの付いていない通常債より小さくなる理由を説明する問題です。</p>
+<p>図で確認しましょう。点線がノンコーラブル債、実線がコーラブル債です。利回りが下がっていく左側のゾーンを見てください。コーラブル債には、コール上限という天井があります。これが効いてくるんですね。</p>
+<p>理屈はこうです。コーラブル債では、投資家が発行体にコールを売却している状態でした。金利が低下すると、発行体は「今の高い金利で払い続けるのは損だ」と考えて、期限前償還を選びます。発行体がコールを行使するわけです。すると、本来なら金利低下で価格が大きく上がるはずなのに、その上昇余地が償還によって削られてしまう。価格が天井に張り付く。</p>
+<p>価格の動く幅が削られるということは、金利変化に対する感応度が小さくなる、ということです。だから実効デュレーションが、通常債より小さく出る。一言でまとめると、「コールが上値を抑える、だから感応度も小さくなる」。さきほどの 4.06 という値も、もしこれがオプションなしの 5 年債なら、もっと大きな数字になっていたはずです。オプションが感応度を縮めている。これがコーラブル債の実効デュレーションが小さい理由です。</p></div>
+<aside class="tangent">
+<div class="tangent-header">💡 余談 ③ 規制</div>
+<div class="tangent-body"><p>これに関連して、銀行の世界には IRRBB、日本語で「銀行勘定の金利リスク」という国際的な規制の枠組みがあります。銀行は預金や貸出に伴う金利リスクを計測して、当局に報告しなければなりません。このとき厄介なのが、まさに今日のようなオプション性なんです。住宅ローンの繰り上げ返済や、定期預金の中途解約は、コーラブル債やプッタブル債と同じ「埋め込まれたオプション」です。だから銀行は、単純な修正デュレーションではなく、こうしたオプション性を織り込んだ実効ベースの感応度で測ることが求められます。試験には IRRBB の細部は出ませんが、「オプション性のある商品は実効ベースで測る」という今日の発想が、規制実務でもそのまま生きていると知っておくと、理解に厚みが出ます。</p></div>
+</aside>
+<div class="script-meta">本文 約 660 字 + 余談 ③ 約 280 字 / 約 7 分</div>
+</section>
+<section class="slide" id="bu2-25" data-time="90" data-type="問題扉" data-title="問3扉 — OAS の考え方と簡便計算">
+<div class="slide-header">
+<span class="slide-badge">BU2-25</span>
+<span class="slide-type">問題扉</span>
+<span class="slide-time">218 字 / 約 1.5 分</span>
+</div>
+<h3 class="slide-title">問3扉 — OAS の考え方と簡便計算</h3>
+<hr class="slide-divider">
+<div class="script"><p>問 3 に進みます。テーマは OAS、オプション調整スプレッドです。証アナ 2 次のオプション内蔵債で、最も出題価値が高い論点の 1 つです。</p>
+<p>ここまで、コーラブル債は価格に天井ができる、実効デュレーションが小さくなる、という「価格と感応度」の話をしてきました。OAS はそこから一歩進んで、「では、このオプション内蔵債のクレジット・スプレッドを、どうやって公平に測るか」という問いに答える指標です。オプションの影響を取り除いた、純粋な上乗せ金利。それが OAS です。まずは定義と、その求め方の手順から確認していきます。</p></div>
+<div class="script-meta">218 字 / 約 1.5 分</div>
+</section>
+<section class="slide" id="bu2-26" data-time="420" data-type="解答" data-title="問3(1) 解答 — OAS とは何か(定義と手順)">
+<div class="slide-header">
+<span class="slide-badge">BU2-26</span>
+<span class="slide-type">解答</span>
+<span class="slide-time">本文 約 700 字 + 余談 ① 約 250 字 / 約 7 分</span>
+</div>
+<h3 class="slide-title">問3(1) 解答 — OAS とは何か(定義と手順)</h3>
+<hr class="slide-divider">
+<div class="script"><p>(1) は、OAS とは何かを説明する問題です。</p>
+<p>定義から言います。OAS とは、金利モデルの上でリスク中立評価を行ったときに、モデルが出す理論価格と、市場で実際についている価格とが一致するように、すべてのノードに一様に上乗せするスプレッドのことです。一言でいうと、「モデル上のリスクフリー金利に、どれだけ上乗せすれば市場価格に届くか」を表す数値ですね。</p>
+<p>求め方を 4 つの手順で見ましょう。①まず、リスク中立確率を使った金利ツリーを構築します。②次に、各ノードの割引金利に、スプレッド s を一様に加算します。図で言うと、ru プラス s、r0 プラス s、rd プラス s、というふうに、全ノードに同じ s を足す。③そのうえで、バックワード・インダクション、つまり満期側から現在へ割り戻していきます。このとき、コールやプットのオプション行使も考慮します。④最後に、こうして計算したモデル価格が、市場価格にちょうど一致するような s を探す。その s が OAS です。</p>
+<p>ポイントは、s をすべてのノードに一様に足す、という点です。年限ごとにバラバラの上乗せではなく、一本のスプレッド。だからこそ、異なるオプション内蔵債どうしを、同じ物差しで比べられる。ここが OAS の値打ちです。では、簡単な数値例で実際に計算してみましょう。</p></div>
+<aside class="tangent">
+<div class="tangent-header">💡 余談 ① 実務</div>
+<div class="tangent-body"><p>ちなみに OAS は、運用の現場では MBS やエージェンシー債を扱うデスクで、ほとんど毎日使われている指標です。彼らは複数の銘柄を並べて、「この銘柄は OAS が 80bp、こっちは 60bp。同じ格付けなら 80bp の方が割安だ」というふうに、オプション性を除いた素の妙味で銘柄を選びます。表面利回りやスプレッドだけ見ると、オプションの効果で歪んでいて公平な比較ができない。OAS にそろえて初めて横並びで判断できる。試験の計算問題が、実務では銘柄選択の物差しとして動いているわけです。</p></div>
+</aside>
+<div class="script-meta">本文 約 700 字 + 余談 ① 約 250 字 / 約 7 分</div>
+</section>
+<section class="slide" id="bu2-27" data-time="300" data-type="解答" data-title="問3(2) 解答 — リスクフリー金利 + s で割引いて期待値を計算">
+<div class="slide-header">
+<span class="slide-badge">BU2-27</span>
+<span class="slide-type">解答</span>
+<span class="slide-time">本文 約 660 字 / 約 5 分</span>
+</div>
+<h3 class="slide-title">問3(2) 解答 — リスクフリー金利 + s で割引いて期待値を計算</h3>
+<hr class="slide-divider">
+<div class="script"><p>(2) は、スプレッド s を実際に加えて、モデル価格を計算する問題です。s は 50bp、つまり 0.005 を使います。</p>
+<p>Step 1、各ノードの金利に s を加算します。上昇ノードは、1 足す 0.04 足す 0.005 で 1.045。下落ノードは、1 足す 0.02 足す 0.005 で 1.025。現在ノードは、1 足す 0.03 足す 0.005 で 1.035。それぞれ素の金利に 0.005 を足した割引ファクターですね。</p>
+<p>Step 2、期待値の現在価値を計算します。式は、P イコール、1 割る 1.035 かける、中カッコ 0.5 かける 106 割る 1.045、足す、0.5 かける 104 割る 1.025。順に読むと、上昇ノードでのキャッシュフロー 106 を 1.045 で割り、下落ノードでの 104 を 1.025 で割り、それぞれリスク中立確率 0.5 で加重平均し、最後に現在ノードの 1.035 でもう一段割り戻す、という二段階の割引です。</p>
+<p>計算すると、この P はおよそ 98.02 になります。リスク中立確率 0.5 ずつというのは、上がる確率と下がる確率を等しいと置いた、最もシンプルな設定ですね。ここで覚えておいてほしいのは、二項ツリーでの価格評価は、必ず「満期側のキャッシュフローを、各ノードの金利で 1 期ずつ割り戻していく」という流れになる、ということ。第Ⅰ問のツリーも、この OAS も、骨格は同じバックワード・インダクションです。では、この結果を使って、OAS とボラティリティの関係を見ます。</p></div>
+<div class="script-meta">本文 約 660 字 / 約 5 分</div>
+</section>
+<section class="slide" id="bu2-28" data-time="420" data-type="深掘り" data-title="深掘り — Z スプレッド = OAS + オプション価値スプレッド">
+<div class="slide-header">
+<span class="slide-badge">BU2-28</span>
+<span class="slide-type">深掘り</span>
+<span class="slide-time">本文 約 700 字 + 余談 ④ 約 250 字 / 約 7 分</span>
+</div>
+<h3 class="slide-title">深掘り — Z スプレッド = OAS + オプション価値スプレッド</h3>
+<hr class="slide-divider">
+<div class="script"><p>ここで、OAS と Z スプレッドの関係を概念図で整理しておきます。これは選択肢問題でも頻出の重要フレームです。</p>
+<p>基本の関係式は、Z スプレッド イコール OAS プラス オプション価値スプレッド。Z スプレッドというのは、オプションを無視して、市場価格に一致させるためにカーブ全体へ一様に乗せるスプレッドのこと。これに対して OAS は、オプションの価値を別建てで取り除いた、純粋なクレジット・スプレッドでした。つまり、Z スプレッドの中には、信用の対価である OAS と、オプションの対価であるオプション価値スプレッドの、2 つが混ざっているわけです。</p>
+<p>図の左右を見比べてください。ボラティリティが大きいときは、オプションの価値が大きくなります。だから Z スプレッドと OAS の差が大きく開く。逆にボラティリティが小さいときは、オプションの価値が縮むので、両者は接近していきます。極端にボラがゼロに近づけば、オプション価値も消えて、Z スプレッドと OAS はほぼ同じになる。</p>
+<p>一点、注意書きにあるとおり、これはあくまで概念的な対応です。価格とスプレッドの関係は非線形なので、bp 単位で厳密に単純加算できるわけではありません。「ボラが下がると両者が近づく」という方向感を掴むための図、と理解してください。次のスライドで、この関係を具体的な数値設定で確認します。</p></div>
+<aside class="tangent">
+<div class="tangent-header">💡 余談 ④ CFA</div>
+<div class="tangent-body"><p>この OAS と Z スプレッドの関係、CFA でも Level II の Fixed Income で必ず登場します。CFA では、オプションのない普通の社債には Z スプレッド、コーラブル債やプッタブル債のようなオプション内蔵債には OAS、という使い分けをまず徹底して教えます。証アナの今日の式、Z イコール OAS プラス オプション価値、をきちんと押さえておけば、CFA でこの使い分けが問われても、同じ発想でそのまま対応できます。</p></div>
+</aside>
+<div class="script-meta">本文 約 700 字 + 余談 ④ 約 250 字 / 約 7 分</div>
+</section>
+<section class="slide" id="bu2-29" data-time="300" data-type="解答" data-title="問3(3) 解答 — ボラ縮小時の Z スプレッドと OAS の関係">
+<div class="slide-header">
+<span class="slide-badge">BU2-29</span>
+<span class="slide-type">解答</span>
+<span class="slide-time">本文 約 660 字 / 約 5 分</span>
+</div>
+<h3 class="slide-title">問3(3) 解答 — ボラ縮小時の Z スプレッドと OAS の関係</h3>
+<hr class="slide-divider">
+<div class="script"><p>(3) は、ボラティリティが小さくなったときに、Z スプレッドと OAS がどういう関係になるかを答える問題です。</p>
+<p>設定を確認します。市場価格は 98.02 円。さきほど (2) で、s イコール 50bp として計算したモデル価格 P が、ちょうど 98.02 円でした。市場価格と一致しているので、この 50bp が解、つまり OAS はおよそ 50bp だと分かります。P が 98.02 で市場価格に一致した、ということは s イコール 0.005、50bp が OAS だ、という読み方ですね。</p>
+<p>そのうえで、オプション評価のボラティリティが小さくなった場合を考えます。ボラが下がると、オプション価値が下がります。すると、Z スプレッド イコール OAS プラス オプション価値、の右の項が縮む。OAS は信用の対価を表す部分で、ボラの変化に直接は振り回されにくい部分です。一方、オプション価値の方が縮んでいくので、Z スプレッドが OAS に近づいていきます。結論は、ボラ低下で Z スプレッドと OAS は接近する、です。</p>
+<p>この問題の値打ちは、OAS という指標の意味そのものを確認させてくれる点にあります。OAS は、オプション性を除去した後のクレジット・スプレッド。だからこそ、オプションの大小に左右されにくい形で、異なるオプション内蔵債どうしを比較できます。ただし、評価に使うボラティリティ自体を変えて再計算すれば、OAS の値も動き得る。そこは押さえたうえで、比較の物差しとして使ってください。では問 4 の理解問題に進みます。</p></div>
+<div class="script-meta">本文 約 660 字 / 約 5 分</div>
+</section>
+<section class="slide" id="bu2-30" data-time="60" data-type="問題扉" data-title="問4扉 — オプション内蔵型債券に関する理解(選択肢)">
+<div class="slide-header">
+<span class="slide-badge">BU2-30</span>
+<span class="slide-type">問題扉</span>
+<span class="slide-time">188 字 / 約 1 分</span>
+</div>
+<h3 class="slide-title">問4扉 — オプション内蔵型債券に関する理解(選択肢)</h3>
+<hr class="slide-divider">
+<div class="script"><p>第Ⅱ問の最後、問 4 です。これは選択肢問題で、ここまで扱ってきたオプション内蔵債について、最も適切な記述を 1 つ選ぶ形式です。選択肢は A から E まで 5 つ。</p>
+<p>これまでの問 1 から問 3 の論点が、まるごと選択肢の中に散りばめられています。コーラブル債とプッタブル債の価格特性、誰がどちらのオプションを持っているか、そして OAS と Z スプレッドの関係。一つひとつの選択肢が、いままでのどの論点に対応しているかを意識しながら、正誤を判定していきましょう。</p></div>
+<div class="script-meta">188 字 / 約 1 分</div>
+</section>
+<section class="slide" id="bu2-31" data-time="420" data-type="解答" data-title="問4 解答 — 正解 D(ボラ低下で Z と OAS が接近)">
+<div class="slide-header">
+<span class="slide-badge">BU2-31</span>
+<span class="slide-type">解答</span>
+<span class="slide-time">本文 約 820 字 + 余談 ① 約 240 字 / 約 7 分</span>
+</div>
+<h3 class="slide-title">問4 解答 — 正解 D(ボラ低下で Z と OAS が接近)</h3>
+<hr class="slide-divider">
+<div class="script"><p>正解は D です。「オプション評価時のボラティリティが小さくなると、オプション価値に相当するスプレッドが縮小するため、Z スプレッドと OAS は接近しやすい」という選択肢ですね。これは、ちょうど前のスライドで確認した内容そのものです。論拠を 4 つ整理すると、①ボラティリティが小さくなる、②オプション価値スプレッドが縮小する、③Z イコール OAS プラス オプション価値だから両者が接近する、④極限ではオプション価値がゼロになって Z イコール OAS になる。この流れで D が正しいと確認できます。</p>
+<p>残りの選択肢も駆け足で見ておきましょう。A は、コーラブル債について「投資家がコールを購入している」と書いていますが、これは逆ですね。投資家はコールを売却している側です。だから価格は通常債より低くなります。B はプッタブル債の話で、「5 年債と同じだけ下落する」と言っていますが、プッタブル債はプット行使で下値が支えられるので、5 年債と同じ下落は生じません。C は「Z スプレッドと OAS を直接加減できる」という趣旨ですが、スプレッドと価値の関係は非線形なので、bp の単純な足し引きは妥当ではない。これはさっきの図の注意書きそのままです。E は OAS の定義を誤っていて、「OAS は価格差そのものだ」と言っていますが、OAS は価格差ではなく、モデル価格を市場価格に一致させるよう割引率に上乗せするスプレッドです。</p>
+<p>特に押さえてほしいのが、AとEのような「オプションの保有方向」と「OAS の定義」の引っ掛けです。本試験でも、ここを入れ替えた選択肢が定番です。「投資家はコールを売り、プットを買う」「OAS は割引率への上乗せ」。この 2 つを口で言えるようにしておいてください。これで第Ⅱ問は終わりです。一区切りして、第Ⅲ問の信用リスクへ進みましょう。</p></div>
+<aside class="tangent">
+<div class="tangent-header">💡 余談 ① 実務</div>
+<div class="tangent-body"><p>OAS の実務的な使いどころを、もう一歩広げておきます。運用の現場では、OAS を使ってまったく種類の違う債券、たとえばコーラブルの社債と、MBS と、エージェンシー債を、横一線に並べて比較します。表面的なスプレッドはオプション性で歪んでいますが、OAS にそろえれば「信用とオプションを切り分けた後の、純粋な割安・割高」が見える。ファンドマネージャーが「同じ OAS なら、より流動性の高い銘柄を選ぶ」といった最終判断を下すときの、共通の物差しになっているんですね。</p></div>
+</aside>
+<div class="script-meta">本文 約 820 字 + 余談 ① 約 240 字 / 約 7 分</div>
+</section>
+<section class="slide" id="bu2-32" data-time="60" data-type="目次" data-title="目次再掲 — 第Ⅲ問への切り替え">
+<div class="slide-header">
+<span class="slide-badge">BU2-32</span>
+<span class="slide-type">目次</span>
+<span class="slide-time">178 字 / 約 1 分</span>
+</div>
+<h3 class="slide-title">目次再掲 — 第Ⅲ問への切り替え</h3>
+<hr class="slide-divider">
+<div class="script"><p>全体目次に戻ります。第Ⅱ問では、債券に埋め込まれたオプションが、価格や感応度、そしてスプレッドをどう歪めるかを見てきました。最後の第Ⅲ問は、視点をがらりと変えて、信用リスクです。発行体が借りたお金を返せなくなる、つまりデフォルトの確率を、どうやってモデルで測るか。ここで、株式をオプションとして捉える、という非常にエレガントな発想が出てきます。構造型モデルの世界に入っていきましょう。</p></div>
+<div class="script-meta">178 字 / 約 1 分</div>
+</section>
+<div class="chapter-end">— 区切り —</div>
+<div class="chapter-banner" id="q3"><div class="chapter-no">③ 第Ⅲ問</div><h2>第Ⅲ問 — 信用リスク・構造型モデル</h2><div class="chapter-meta">BU2-33 〜 BU2-46 / 14 枚</div></div>
+<section class="slide" id="bu2-33" data-time="90" data-type="問題扉" data-title="問1扉 — 株式のオプション性とデフォルト確率">
+<div class="slide-header">
+<span class="slide-badge">BU2-33</span>
+<span class="slide-type">問題扉</span>
+<span class="slide-time">228 字 / 約 1.5 分</span>
+</div>
+<h3 class="slide-title">問1扉 — 株式のオプション性とデフォルト確率</h3>
+<hr class="slide-divider">
+<div class="script"><p>第Ⅲ問の問 1 に入ります。テーマは株式のオプション性とデフォルト確率です。</p>
+<p>ここで出てくる発想は、慣れるまでは少し不思議に感じるかもしれません。「会社の株式は、その会社の資産を原資産とするコール・オプションだ」という捉え方です。これは構造型モデル、あるいはマートン・モデルと呼ばれる、信用リスク分析の土台になる考え方です。株式をオプションとみなせると、ブラック・ショールズ的な道具立てで、その会社がデフォルトする確率まで計算できるようになる。問 1 では、なぜ株式がコール・オプションと言えるのか、その理屈を丁寧に追っていきます。</p></div>
+<div class="script-meta">228 字 / 約 1.5 分</div>
+</section>
+<section class="slide" id="bu2-34" data-time="300" data-type="解答" data-title="問1 解答 — 株式 = 企業資産を原資産とするコール">
+<div class="slide-header">
+<span class="slide-badge">BU2-34</span>
+<span class="slide-type">解答</span>
+<span class="slide-time">本文 約 700 字 / 約 5 分</span>
+</div>
+<h3 class="slide-title">問1 解答 — 株式 = 企業資産を原資産とするコール</h3>
+<hr class="slide-divider">
+<div class="script"><p>問 1 の核心は、株式 イコール、企業資産を原資産とし、満期の負債額面 F を行使価格とするヨーロピアン・コール・オプション、という捉え方です。</p>
+<p>順に見ていきましょう。まず大前提として、株式 足す 負債 イコール 企業資産。会社の資産は、株主のものである株式と、債権者のものである負債に分かれます。ここで、満期時点の株式価値を ET と書くと、ET イコール、max、カッコ AT マイナス F、ゼロ、と表せます。AT が満期時点の企業資産価値、F が満期に返すべき負債の額面です。</p>
+<p>この max の形が、まさにコール・オプションのペイオフそのものなんですね。原資産が企業資産 AT、行使価格が負債額面 F。コール・オプションは「原資産価格が行使価格を上回ったときだけ利益が出る」商品でした。株式もまったく同じで、企業資産が負債を上回ったときだけ、株主に取り分が生まれる。下回ったら、株主の取り分はゼロ、つまり権利を放棄するのと同じです。</p>
+<p>整理すると、コール・オプションの原資産が企業資産の時価、行使価格が満期に返すべき負債額。この対応が見えると、株式の価値評価に、オプションの道具がそのまま使えるようになります。そして満期時点で企業資産が負債額面を下回る確率、これがそのままデフォルト確率になり、N、カッコ マイナス d2、で表されます。この d2 の意味は、このあとじっくり見ていきます。まずはペイオフを図で確認しましょう。</p></div>
+<div class="script-meta">本文 約 700 字 / 約 5 分</div>
+</section>
+<section class="slide" id="bu2-35" data-time="420" data-type="深掘り" data-title="深掘り — 株式のペイオフ図 Eᴛ = max(Aᴛ − F, 0)">
+<div class="slide-header">
+<span class="slide-badge">BU2-35</span>
+<span class="slide-type">深掘り</span>
+<span class="slide-time">本文 約 680 字 + 余談 ⑤ 約 250 字 / 約 7 分</span>
+</div>
+<h3 class="slide-title">深掘り — 株式のペイオフ図 Eᴛ = max(Aᴛ − F, 0)</h3>
+<hr class="slide-divider">
+<div class="script"><p>株式のペイオフを図で見ていきます。横軸が満期時点の企業資産価値 AT、縦軸が株主の取り分 ET です。</p>
+<p>2 つの場合に分けて読みます。1 つ目、AT が F を下回るとき。会社の資産では負債を返しきれません。これがデフォルトです。このとき、残ったものはすべて債権者に渡るので、株主の取り分はゼロ。図では横軸に張り付いた水平の部分ですね。2 つ目、AT が F 以上のとき。負債を全額返済して、その残りが株主のものになります。図では、F を超えたところから右肩上がりに伸びる直線です。傾きはちょうど 1。</p>
+<p>この「ゼロで張り付いて、ある点から斜めに伸びていく」折れ線が、コール・オプションのペイオフと完全に同じ形です。だから、株主は「企業資産 AT を原資産、負債額面 F を行使価格とするコール」を持っている、と言えるわけですね。</p>
+<p>そして信用リスクの観点で重要なのが、左側、AT が F を下回る領域です。満期時点で資産価値が負債額面を下回る確率、これがデフォルト確率です。式で書くと、N、カッコ マイナス d2。標準正規分布で、マイナス d2 より左側の裾の面積、というイメージです。この図の「左裾の面積」が、次のデフォルト距離の話に直結します。</p></div>
+<aside class="tangent">
+<div class="tangent-header">💡 余談 ⑤ 学術</div>
+<div class="tangent-body"><p>この「株式をコール・オプションとみなす」という発想、実は 1974 年にロバート・マートンが提唱したものです。ブラック・ショールズの 2 人のうちの 1 人、あのマートンですね。彼は、オプション価格理論を企業の負債評価に応用して、「株主は有限責任だからコールの買い手、債権者はプットの売り手だ」という構造を示しました。これが構造型モデルの原点です。試験ではマートンの名前までは問われませんが、このあと出てくる KMV モデルも、元をたどればこの 1974 年のマートン・モデルの実用版なんだ、と知っておくと、第Ⅲ問全体の見通しがよくなります。</p></div>
+</aside>
+<div class="script-meta">本文 約 680 字 + 余談 ⑤ 約 250 字 / 約 7 分</div>
+</section>
+<section class="slide" id="bu2-36" data-time="330" data-type="解答" data-title="問1(2) 解答整理 — 株式 = オプション、デフォルト確率の導出(4 点)">
+<div class="slide-header">
+<span class="slide-badge">BU2-36</span>
+<span class="slide-type">解答</span>
+<span class="slide-time">本文 約 700 字 / 約 5.5 分</span>
+</div>
+<h3 class="slide-title">問1(2) 解答整理 — 株式 = オプション、デフォルト確率の導出(4 点)</h3>
+<hr class="slide-divider">
+<div class="script"><p>問 1 の (2)、「なぜ株式をオプションと考えることができ、かつデフォルト確率を推定できるのか」という問いに対する答えを、4 つの柱で整理します。</p>
+<p>1 つ目、残余請求権。株主が受け取れるのは「企業資産から負債を弁済した残り」だけです。だから、満期時点で AT が F を下回れば、株主の取り分はゼロになる。株主は、債権者の取り分を返した後の、いわば最後の残りものを受け取る立場、というわけですね。</p>
+<p>2 つ目、ペイオフの恒等式。これがさっきの ET イコール、max、カッコ AT マイナス F、ゼロ。残余請求権という性質を数式にすると、ぴったりこの max の形になります。</p>
+<p>3 つ目、コール・オプション。この max の形は、数学的にコール・オプションのペイオフと同型です。だから株式は、企業資産 AT を原資産、F を行使価格、満期 T のヨーロピアン・コール、とみなせる。</p>
+<p>4 つ目、デフォルト確率の導出。株式がオプションだと分かれば、オプション理論の枠組みが使えます。リスク中立測度のもとで、満期時点に AT が F を下回る確率、P、カッコ AT 小なり F、を計算すると、これが N、カッコ マイナス d2、として求まります。これがデフォルト確率です。</p>
+<p>残余請求権、ペイオフの恒等式、コール・オプション、デフォルト確率の導出。この 4 段の論理を、順番に口で言えるようにしておくと、記述問題でそのまま得点になります。次のスライドで、この論理を答案の形に書き下します。</p></div>
+<div class="script-meta">本文 約 700 字 / 約 5.5 分</div>
+</section>
+<section class="slide" id="bu2-37" data-time="300" data-type="解答" data-title="問1(2) 解答 — 記述答案の書き下し">
+<div class="slide-header">
+<span class="slide-badge">BU2-37</span>
+<span class="slide-type">解答</span>
+<span class="slide-time">本文 約 640 字 / 約 5 分</span>
+</div>
+<h3 class="slide-title">問1(2) 解答 — 記述答案の書き下し</h3>
+<hr class="slide-divider">
+<div class="script"><p>いま整理した 4 つの柱を、実際の記述答案として書き下すとどうなるか、を見ておきます。本試験は記述式ですから、論理を文章でつなぐ練習が大事です。</p>
+<p>模範的な書き方はこうなります。まず、「株主は企業資産に関する残余請求権を有している」と立てる。続けて、「満期時点で企業資産価値が負債額面を上回るときには、その差額が株主に帰属し、資産価値が負債額面以下であれば株主価値はゼロになる」と、2 つの場合を述べる。そのうえで、「すなわち、満期時点の株式価値は ET イコール、max、カッコ AT マイナス F、ゼロ、と表される」と数式で締める。</p>
+<p>さらにそこから、「したがって、株式は企業資産を原資産とし、満期時点の負債額面 F を行使価格とするヨーロピアン・コール・オプションとみなすことができる」とつなぎ、最後に「このため、満期時点で AT が F を下回る確率からデフォルトを評価でき、リスク中立測度のもとでは N、カッコ マイナス d2、と表される」と結論づける。</p>
+<p>答案を書くときのコツは、「性質を言う、場合分けする、数式で確定する、オプションと結びつける、確率に落とす」という 5 つの動きを、接続詞でなめらかにつなぐことです。要素を箇条書きで並べるだけだと、記述では点が伸びません。一文ずつ因果でつないでいく。この型を体に入れておいてください。では問 2 の数値計算に進みます。</p></div>
+<div class="script-meta">本文 約 640 字 / 約 5 分</div>
+</section>
+<section class="slide" id="bu2-38" data-time="90" data-type="問題扉" data-title="問2扉 — 満期時点の株式価値・負債価値・デフォルト確率">
+<div class="slide-header">
+<span class="slide-badge">BU2-38</span>
+<span class="slide-type">問題扉</span>
+<span class="slide-time">208 字 / 約 1.5 分</span>
+</div>
+<h3 class="slide-title">問2扉 — 満期時点の株式価値・負債価値・デフォルト確率</h3>
+<hr class="slide-divider">
+<div class="script"><p>問 2 に進みます。ここからは、いまの構造型モデルの枠組みを、具体的な数字で動かしていきます。</p>
+<p>問題設定はシンプルです。満期に返すべき負債額面 F が 100 円。これに対して、満期時点の企業資産価値 AT がいくつになるかで、株主と債権者の取り分が変わる。(1) と (2) で、AT が 130 円のケースと 80 円のケース、それぞれの株式価値 ET と負債価値 DT を求めます。そして (3) で、デフォルト確率を実際に計算します。さっきの max の式が、ここで生きてきます。それでは具体的な数値を入れていきましょう。</p></div>
+<div class="script-meta">208 字 / 約 1.5 分</div>
+</section>
+<section class="slide" id="bu2-39" data-time="330" data-type="解答" data-title="問2(1)(2) 解答 — AT=130 なら正常返済、AT=80 ならデフォルト">
+<div class="slide-header">
+<span class="slide-badge">BU2-39</span>
+<span class="slide-type">解答</span>
+<span class="slide-time">本文 約 740 字 / 約 5.5 分</span>
+</div>
+<h3 class="slide-title">問2(1)(2) 解答 — AT=130 なら正常返済、AT=80 ならデフォルト</h3>
+<hr class="slide-divider">
+<div class="script"><p>(1) と (2) を続けて見ます。負債額面 F は 100 円。これを基準に、2 つのケースを比べます。</p>
+<p>まず (1)、AT が 130 円のケース。企業資産 130 円に対して、返すべき負債は 100 円ですから、ちゃんと返せます。正常返済ですね。株式価値 ET は、max、カッコ 130 マイナス 100、ゼロ、で 30 円。負債価値 DT は、min、カッコ 100、130、で 100 円。債権者は約束どおり満額の 100 円を受け取り、株主には残りの 30 円が渡ります。</p>
+<p>次に (2)、AT が 80 円のケース。企業資産が 80 円しかないのに、返すべき負債は 100 円。これでは返しきれません。デフォルトです。株式価値 ET は、max、カッコ 80 マイナス 100、ゼロ。カッコの中はマイナス 20 ですが、max でゼロと比べるのでゼロ円。株主の取り分はありません。負債価値 DT は、min、カッコ 100、80、で 80 円。債権者は本来 100 円のはずが、80 円しか回収できない。差額の 20 円が、債権者にとっての損失になります。</p>
+<p>ここで注目してほしいのが、株主と債権者の非対称性です。株主は、ET イコール max という形で、下方向はゼロで止まる代わりに、上方向は青天井。これがコールの買い手です。債権者は、DT イコール min という形で、うまくいっても満額の 100 円までで頭打ち、悪くなれば回収額が減る。これはちょうど、安全な債券を持ちながらプットを売っている形に当たります。max と min、この 2 つの式の形に、両者の立場がそのまま表れています。では (3) でデフォルト確率を計算します。</p></div>
+<div class="script-meta">本文 約 740 字 / 約 5.5 分</div>
+</section>
+<section class="slide" id="bu2-40" data-time="420" data-type="解答" data-title="問2(3) 解答 — デフォルト確率 = N(−d₂) = 11.51%">
+<div class="slide-header">
+<span class="slide-badge">BU2-40</span>
+<span class="slide-type">解答</span>
+<span class="slide-time">本文 約 660 字 + 余談 ④ 約 220 字 / 約 7 分</span>
+</div>
+<h3 class="slide-title">問2(3) 解答 — デフォルト確率 = N(−d₂) = 11.51%</h3>
+<hr class="slide-divider">
+<div class="script"><p>(3) は、デフォルト確率を数値で求める問題です。</p>
+<p>デフォルト確率は、N、カッコ マイナス d2。これを、標準正規分布の対称性を使って書き換えます。Step 1、N、カッコ マイナス x、イコール、1 マイナス N、カッコ x。標準正規分布は左右対称なので、マイナス側の裾の面積は、1 から プラス側の累積確率を引いたものに等しい。これは正規分布を扱うときの定番の変形です。</p>
+<p>Step 2、値を代入します。ここでは d2 が 1.20 と与えられていて、N、カッコ 1.20、イコール 0.8849 も与えられています。ですから、N、カッコ マイナス d2、イコール、1 マイナス 0.8849、で 0.1151。パーセントに直して、デフォルト確率は 11.51% です。</p>
+<p>本試験での注意点を 1 つ。デフォルト確率は N、カッコ マイナス d2、であって、N、カッコ d2、ではありません。N、カッコ d2、の 0.8849、つまり 88.49% は「デフォルトしない確率」、生存確率の方です。マイナスを付け忘れると、答えがそっくり裏返って、88.49% という大きすぎる値を選んでしまう。正規分布表を引くときは、まず N、カッコ d2、を読んで、デフォルト確率はそこから 1 を引く、と手順で固定しておくと事故が減ります。私もマイナスの付け忘れは何度かやりました。では、この d2 そのものの意味を、次のデフォルト距離で掘り下げます。</p></div>
+<aside class="tangent">
+<div class="tangent-header">💡 余談 ④ CFA</div>
+<div class="tangent-body"><p>このデフォルト確率を N、カッコ マイナス d2、で求めるという構造型モデル、CFA でも Level II の Credit Analysis で扱われます。CFA では、いまのマートン・モデルを structural model、構造型モデルとして教えて、株式をコールとみなす発想や、デフォルト距離から確率を出す流れを問うてきます。証アナの今日の N、カッコ マイナス d2、の計算を押さえておけば、CFA の構造型モデルの問題もそのまま解けます。CFA では、これと対になる誘導型モデル、reduced-form model との違いを聞かれることが多い、というのも頭に入れておくと役立ちます。</p></div>
+</aside>
+<div class="script-meta">本文 約 660 字 + 余談 ④ 約 220 字 / 約 7 分</div>
+</section>
+<section class="slide" id="bu2-41" data-time="90" data-type="問題扉" data-title="問3扉 — デフォルト距離の意味">
+<div class="slide-header">
+<span class="slide-badge">BU2-41</span>
+<span class="slide-type">問題扉</span>
+<span class="slide-time">208 字 / 約 1.5 分</span>
+</div>
+<h3 class="slide-title">問3扉 — デフォルト距離の意味</h3>
+<hr class="slide-divider">
+<div class="script"><p>問 3 に進みます。テーマはデフォルト距離、ディスタンス・トゥ・デフォルトです。</p>
+<p>ここまで、デフォルト確率は N、カッコ マイナス d2、で求まる、ということを見てきました。では、その中身の d2 とは一体何者なのか。これがデフォルト距離です。直感的には、「いまの会社が、デフォルトの一歩手前まで、どれくらい余裕があるか」を、標準偏差という物差しで測った距離です。この概念は、実務で広く使われている KMV モデルの、まさに核になる部分です。問 3 では、この d2 の意味と、ボラティリティとの関係を見ていきます。</p></div>
+<div class="script-meta">208 字 / 約 1.5 分</div>
+</section>
+<section class="slide" id="bu2-42" data-time="270" data-type="解答" data-title="問3(1) 解答 — デフォルト距離 = 標準偏差単位の余裕度">
+<div class="slide-header">
+<span class="slide-badge">BU2-42</span>
+<span class="slide-type">解答</span>
+<span class="slide-time">本文 約 600 字 / 約 4.5 分</span>
+</div>
+<h3 class="slide-title">問3(1) 解答 — デフォルト距離 = 標準偏差単位の余裕度</h3>
+<hr class="slide-divider">
+<div class="script"><p>(1) は、デフォルト距離の意味を説明する問題です。2 つの概念を、はっきり区別して押さえてください。</p>
+<p>1 つ目が、N、カッコ マイナス d2。これはリスク中立測度のもとでのデフォルト確率です。ここで注意したいのは、これは現実のデフォルト確率、実務で EDF、期待デフォルト頻度と呼ばれるものとは、厳密には異なる、という点です。リスク中立の世界の確率と、現実の世界の確率は別物。試験では「リスク中立測度のもとで」と前置きがあるかどうかを、必ず確認してください。</p>
+<p>2 つ目が、デフォルト距離そのもの。これは、負債額面までの、標準偏差単位の距離です。つまり、いまの企業資産価値の期待値から、デフォルトの境目である負債額面 F まで、標準偏差いくつ分の隔たりがあるか、を表します。</p>
+<p>この 2 つの関係を一言でいうと、デフォルト距離が大きいほど、N、カッコ マイナス d2、で測ったデフォルト確率は小さくなる。余裕が大きければ、デフォルトしにくい。当たり前のようですが、「距離」と「確率」が裏表でつながっている、というこの対応が、構造型モデルの最も使い出のあるところです。距離という直感的に分かりやすい量で、確率を語れるわけです。では、その距離を図で見てみましょう。</p></div>
+<div class="script-meta">本文 約 600 字 / 約 4.5 分</div>
+</section>
+<section class="slide" id="bu2-43" data-time="420" data-type="深掘り" data-title="深掘り — デフォルト距離の図解(資産価値分布の左裾)">
+<div class="slide-header">
+<span class="slide-badge">BU2-43</span>
+<span class="slide-type">深掘り</span>
+<span class="slide-time">本文 約 660 字 + 余談 ① 約 250 字 / 約 7 分</span>
+</div>
+<h3 class="slide-title">深掘り — デフォルト距離の図解(資産価値分布の左裾)</h3>
+<hr class="slide-divider">
+<div class="script"><p>デフォルト距離を、資産価値の分布図で見ていきます。横軸が満期時点の企業資産価値、釣鐘型の曲線がその確率分布です。</p>
+<p>分布の山のてっぺん、中心にあるのが、企業資産価値の期待値 E、カッコ AT。そして、そこから左に離れたところに、デフォルトの境目である負債額面 F があります。この、期待値 E、カッコ AT、から境目 F までの隔たりを、標準偏差いくつ分か、という物差しで測ったものが、デフォルト距離です。</p>
+<p>図の左側、F より左の領域に注目してください。ここは、満期時点で資産価値が負債額面を下回ってしまうゾーン、つまりデフォルト領域です。この左裾の面積が、そのままデフォルト確率に対応します。</p>
+<p>ここから 2 つの直感が得られます。d2 が大きい、つまりデフォルト距離が大きいときは、F が分布のずっと左の方にある。だから左裾の面積が小さく、デフォルト確率は下がります。逆に d2 が小さいと、F が山の近くまで迫ってくる。左裾の面積が大きくなり、デフォルト確率が上がります。「距離が遠いほど安全、近いほど危険」。この図のイメージが、KMV モデルの核そのものです。次は、ボラティリティが変わると、この距離と確率がどう動くかを見ます。</p></div>
+<aside class="tangent">
+<div class="tangent-header">💡 余談 ① 実務</div>
+<div class="tangent-body"><p>このデフォルト距離、実務では信用リスク管理の現場で日常的に使われています。代表的なのがムーディーズの KMV というモデルで、上場企業の株価とそのボラティリティから企業資産価値の分布を推定して、デフォルト距離を計算し、それを過去の実績データと照らして EDF、期待デフォルト頻度に変換します。銀行の与信担当者や債券投資家は、この EDF を見て「この会社への融資枠をどうするか」「この社債を持ち続けるか」を判断する。今日の図が、現場では取引先の信用力を測るダッシュボードとして動いているわけです。</p></div>
+</aside>
+<div class="script-meta">本文 約 660 字 + 余談 ① 約 250 字 / 約 7 分</div>
+</section>
+<section class="slide" id="bu2-44" data-time="450" data-type="解答" data-title="問3(2) 解答 — ボラ上昇でデフォルト距離が縮み、確率が上がる">
+<div class="slide-header">
+<span class="slide-badge">BU2-44</span>
+<span class="slide-type">解答</span>
+<span class="slide-time">本文 約 700 字 + 余談 ② 約 280 字 / 約 7.5 分</span>
+</div>
+<h3 class="slide-title">問3(2) 解答 — ボラ上昇でデフォルト距離が縮み、確率が上がる</h3>
+<hr class="slide-divider">
+<div class="script"><p>(2) は、企業資産のボラティリティが変わると、デフォルト距離とデフォルト確率がどう動くか、という問題です。前提として、資産が負債を上回っている健全な会社、ソルベントな会社を想定します。</p>
+<p>結論から言うと、ボラティリティが上がると、デフォルト距離が縮み、デフォルト確率が上がります。図の左右を見比べてください。左がボラの小さいケース。資産価値の分布が、中心の周りにキュッと締まっています。だから、デフォルトの境目である負債額面 F を下回る左裾の面積は小さい。デフォルト確率は低いままです。</p>
+<p>右がボラの大きいケース。分布の裾が左右に大きく広がります。山が低く、横に間延びした形ですね。すると、F を下回る左裾の部分が、ぐっと増える。同じように資産が負債を上回っている健全な会社でも、ボラが大きいだけで、デフォルト領域に落ち込む確率が高くなってしまうわけです。</p>
+<p>ここが直感的に大事なところです。会社の資産が負債を上回っているかどうか、という水準だけでなく、その資産価値がどれくらい揺れるか、というボラティリティが、信用リスクを大きく左右する。同じ財務内容でも、事業が安定している会社と、業績の振れが激しい会社では、後者の方がデフォルトしやすい。構造型モデルは、この「揺れの大きさが信用力に効く」という現実を、きちんと数式に取り込んでいるんですね。では最後の理解問題に進みます。</p></div>
+<aside class="tangent">
+<div class="tangent-header">💡 余談 ② 市場史</div>
+<div class="tangent-body"><p>この「ボラが上がるとデフォルト距離が縮む」というメカニズムが、現実に劇的な形で表れたのが、2008 年のリーマン・ショックです。あのとき、金融機関の資産価値のボラティリティが急騰しました。保有資産の価格が乱高下して、誰もその会社の本当の価値が分からなくなった。すると、財務諸表上はまだ債務超過でない会社でも、デフォルト距離が一気に縮んで、市場が織り込むデフォルト確率が跳ね上がった。格付会社の格下げが連鎖したのも、この資産ボラの急騰が背景にあります。試験には出ませんが、「ボラの上昇が信用不安を増幅する」という今日の理屈が、金融危機の現場でそのまま起きていた、と知っておくと理解が立体的になります。</p></div>
+</aside>
+<div class="script-meta">本文 約 700 字 + 余談 ② 約 280 字 / 約 7.5 分</div>
+</section>
+<section class="slide" id="bu2-45" data-time="60" data-type="問題扉" data-title="問4扉 — 構造型モデルに関する理解(選択肢)">
+<div class="slide-header">
+<span class="slide-badge">BU2-45</span>
+<span class="slide-type">問題扉</span>
+<span class="slide-time">178 字 / 約 1 分</span>
+</div>
+<h3 class="slide-title">問4扉 — 構造型モデルに関する理解(選択肢)</h3>
+<hr class="slide-divider">
+<div class="script"><p>第Ⅲ問の最後、問 4 です。これも選択肢問題で、構造型モデルについて最も適切な記述を 1 つ選ぶ形式です。選択肢は A から E まで 5 つ。</p>
+<p>ここまで扱ってきた、株式 イコール コール・オプション、デフォルト確率 イコール N、カッコ マイナス d2、デフォルト距離とボラの関係、そして構造型モデルと誘導型モデルの違い。これらがすべて選択肢に散りばめられています。第Ⅲ問全体の総まとめとして、一つひとつ正誤を判定していきましょう。</p></div>
+<div class="script-meta">178 字 / 約 1 分</div>
+</section>
+<section class="slide" id="bu2-46" data-time="540" data-type="まとめ" data-title="問4 解答 — 正解 C(株式 = コール → 信用リスクの統一的理解)+ 全体結語">
+<div class="slide-header">
+<span class="slide-badge">BU2-46</span>
+<span class="slide-type">まとめ</span>
+<span class="slide-time">本文 約 1080 字 + 余談 ② 約 280 字 / 約 9 分</span>
+</div>
+<h3 class="slide-title">問4 解答 — 正解 C(株式 = コール → 信用リスクの統一的理解)+ 全体結語</h3>
+<hr class="slide-divider">
+<div class="script"><p>正解は C です。「株式を企業資産に対するコール・オプションとみなすことで、企業価値、負債額、資産ボラティリティと信用リスクの関係を、統一的に理解できる」という選択肢ですね。論拠はこうです。株式を、企業資産 AT を原資産、F を行使価格とするコールとみなす。そうすると、企業価値、負債額、資産ボラという 3 つの要素から、信用リスクを一つの枠組みで評価できる。これが KMV モデルなどの核になっている、という流れです。「株式 イコール コール」「d2 が大きいほどデフォルト確率は下がる」「構造型 対 誘導型」、この 3 点が C を支えています。</p>
+<p>残りの選択肢を確認します。A は「資産価値・負債からデフォルトを説明する」と言っていますが、これは構造型モデルの説明です。選択肢では誘導型モデルの考え方として書かれているので誤り。構造型と誘導型のラベルが入れ替わっています。B は「d2 が大きいと N、カッコ マイナス d2、は小さい、よってデフォルト確率は下がる」という関係を、逆に記述しています。正しくは d2 が大きいほどデフォルト確率は下がる、ですから、記述が逆。D は「デフォルト距離は回収率、LGD だ」と言っていますが、デフォルト距離はあくまで余裕度であって、回収率とは別物です。E は「構造型ではオプション評価ができない」という趣旨ですが、構造型こそ、リスク中立確率のもとでオプション評価を行うモデルですから、これも誤りです。</p>
+<p>特に押さえてほしいのが、A の「構造型 対 誘導型」の取り違えと、B の「d2 とデフォルト確率の向き」です。構造型は、資産価値と負債からデフォルトを内側のメカニズムで説明するモデル。誘導型は、デフォルトを外から与えられる事象として確率的に扱うモデル。そして d2 が大きいほど安全、です。この 2 点は本試験で繰り返し問われます。</p>
+<p>これで第Ⅲ問、そして本日のブラッシュアップ答練 Part 2 はすべて終了です。今日の流れを最後に一本の線でつないでおきます。第Ⅰ問で、金利の感応度を年限ごとに細かく測る KRD。第Ⅱ問で、債券に埋め込まれたオプションが価格と感応度を歪める OAS の世界。そして第Ⅲ問で、株式をオプションとみなして信用リスクまで測る構造型モデル。感応度、オプション、信用と進んできましたが、その底には「将来のキャッシュフローを、確率で評価して現在価値に割り戻す」という、Part 1 から一貫した発想が流れています。お疲れさまでした。</p></div>
+<aside class="tangent">
+<div class="tangent-header">💡 余談 ② 市場史</div>
+<div class="tangent-body"><p>最後に 1 つ。今日学んだ構造型モデルには、実は限界もあります。それを世界に突きつけたのが、1998 年の LTCM の破綻です。ノーベル賞経済学者を擁したこのファンドは、精緻なモデルでリスクを測っていましたが、ロシア危機という想定外の事態で、相関やボラが一斉に跳ね上がり、モデルの前提が崩れて破綻しました。この反省から、デフォルトを資産価値で内側から説明する構造型だけでなく、デフォルトそのものを外から確率的に与える誘導型モデルや、CDS 市場の情報を使うアプローチが発達しました。試験では構造型を完璧に押さえれば十分ですが、「モデルには必ず前提があり、前提が崩れると機能しない」という視点は、実務に出てからずっと効いてきます。</p></div>
+</aside>
+<div class="script-meta">本文 約 1080 字 + 余談 ② 約 280 字 / 約 9 分</div>
+</section>
+<div class="chapter-end">— 完 —</div>
+</main>
+</div>
+
+<!-- ===== 浮きナビ(下部) ===== -->
+<div class="bottom-nav">
+  <button id="nav-prev" title="前 (←)">◀</button>
+  <span class="nav-current" id="nav-current">BU1-1</span>
+  <button id="nav-next" title="次 (→)">▶</button>
+</div>
+
+<!-- ===== コントロールパネル(右下) ===== -->
+<div class="controls">
+  <button id="ctrl-dark" title="ダークモード (D)">🌙</button>
+  <button id="ctrl-font-up" title="文字大 (+)">A+</button>
+  <button id="ctrl-font-down" title="文字小 (-)">A-</button>
+  <button id="ctrl-presentation" title="プレゼンモード (F)">⛶</button>
+  <button id="ctrl-memo" title="メモ (M)">📝</button>
+  <button id="ctrl-help" title="ヘルプ (?)">?</button>
+</div>
+
+<!-- ===== プレゼンモード コントロール ===== -->
+<div class="pres-controls">
+  <button id="pres-prev">◀ 前</button>
+  <span class="pres-info" id="pres-info">1 / 56</span>
+  <progress id="pres-progress" value="1" max="56"></progress>
+  <span class="pres-info" id="pres-timer">⏱ 0:00 / 1:30</span>
+  <button id="pres-next">次 ▶</button>
+  <button id="pres-exit">✕ 終了</button>
+</div>
+
+<!-- ===== ヘルプモーダル ===== -->
+<div class="modal-backdrop" id="help-modal" hidden>
+  <div class="modal">
+    <button class="close-btn" data-close>×</button>
+    <h2>キーボードショートカット & 機能ガイド</h2>
+    <table><tr><td><kbd>←</kbd> / <kbd>H</kbd></td><td>前のスライド</td></tr><tr><td><kbd>→</kbd> / <kbd>L</kbd></td><td>次のスライド</td></tr><tr><td><kbd>Home</kbd> / <kbd>End</kbd></td><td>先頭 / 末尾</td></tr><tr><td><kbd>F</kbd></td><td>プレゼンモード切替</td></tr><tr><td><kbd>D</kbd></td><td>ダークモード切替</td></tr><tr><td><kbd>+</kbd> / <kbd>-</kbd></td><td>文字サイズ変更</td></tr><tr><td><kbd>/</kbd></td><td>検索フォーカス</td></tr><tr><td><kbd>M</kbd></td><td>メモを開く</td></tr><tr><td><kbd>G</kbd> + 数字 + Enter</td><td>BU2-N にジャンプ</td></tr><tr><td><kbd>?</kbd></td><td>このヘルプ</td></tr><tr><td><kbd>Esc</kbd></td><td>モーダル閉じる / プレゼン終了</td></tr></table>
+    <h2 style="margin-top:24px">機能</h2>
+    <ul style="font-size:13px;line-height:1.8">
+      <li><b>左サイドバー</b>: 56 枚の目次。クリックでジャンプ。スライドタイプでフィルターできます。</li>
+      <li><b>検索</b>: タイトルとタイプ名で目次を絞り込み + 本文ハイライト</li>
+      <li><b>タイマー</b>: スライド毎の経過時間。想定時間を超過すると赤くハイライト</li>
+      <li><b>メモ</b>: 各スライドにメモ書き(ブラウザの localStorage に保存)</li>
+      <li><b>プレゼンモード</b>: 1 枚だけ全画面表示、講義モードに最適</li>
+      <li><b>スワイプ</b>: タブレットで左右スワイプでスライド送り</li>
+      <li><b>復元</b>: ダーク/フォント/最終位置をブラウザに保存し、リロード時に復元</li>
+    </ul>
+    <div class="modal-actions">
+      <button data-close>閉じる</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== メモモーダル ===== -->
+<div class="modal-backdrop" id="memo-modal" hidden>
+  <div class="modal">
+    <button class="close-btn" data-close>×</button>
+    <h2 id="memo-title">メモ — BU1-1</h2>
+    <p style="font-size:12px;color:var(--text-muted);margin:0 0 8px">
+      このスライドへのメモ。<kbd>Cmd+S</kbd> または「保存」で localStorage に保存されます。
+    </p>
+    <textarea id="memo-textarea" placeholder="講義中の気づき、補足、受講生のリアクションなど..."></textarea>
+    <div class="modal-actions">
+      <button id="memo-clear">クリア</button>
+      <button data-close>キャンセル</button>
+      <button class="primary" id="memo-save">保存</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  // ===== 状態 =====
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const total = slides.length;
+  let currentIdx = 0;
+  let slideStartMs = Date.now();
+  let timerPaused = false;
+  let pausedAccumMs = 0;
+  let pauseStartMs = null;
+  let presentationMode = false;
+  let pendingJumpDigits = '';
+  let jumpTimer = null;
+
+  // localStorage
+  const LS_KEYS = {
+    dark: 'BU2.darkMode',
+    font: 'BU2.fontSize',
+    last: 'BU2.lastSlide',
+    memos: 'BU2.memos',
+    filters: 'BU2.filters',
+  };
+  const memos = JSON.parse(localStorage.getItem(LS_KEYS.memos) || '{}');
+  let fontSize = parseInt(localStorage.getItem(LS_KEYS.font) || '16', 10);
+  let darkMode = localStorage.getItem(LS_KEYS.dark) === 'true';
+
+  // ===== 初期化 =====
+  function init() {
+    // ダークモード復元
+    if (darkMode) document.body.classList.add('dark');
+    // フォントサイズ復元
+    document.documentElement.style.setProperty('--script-font-size', fontSize + 'px');
+    // メモあるスライドにマーク
+    refreshMemoIndicators();
+    // フィルター復元
+    const savedFilters = JSON.parse(localStorage.getItem(LS_KEYS.filters) || 'null');
+    if (savedFilters) {
+      document.querySelectorAll('.filter-chip input').forEach(cb => {
+        cb.checked = savedFilters.includes(cb.value);
+      });
+      applyFilters();
+    }
+    // 最後の位置に復元
+    const last = localStorage.getItem(LS_KEYS.last);
+    if (last) {
+      const target = document.getElementById(last);
+      if (target) {
+        setTimeout(() => target.scrollIntoView({ block: 'start' }), 50);
+      }
+    }
+    setupObserver();
+    setupListeners();
+    setInterval(updateTimer, 500);
+  }
+
+  function refreshMemoIndicators() {
+    document.querySelectorAll('.toc-item').forEach(a => {
+      const id = a.dataset.id;
+      const ind = a.querySelector('.toc-memo-indicator');
+      if (memos[id] && memos[id].trim()) {
+        ind.hidden = false;
+      } else {
+        ind.hidden = true;
+      }
+    });
+  }
+
+  // ===== IntersectionObserver で current 更新 =====
+  function setupObserver() {
+    const obs = new IntersectionObserver((entries) => {
+      // 一番上に近いスライドを current にする
+      let best = null;
+      let bestDist = Infinity;
+      slides.forEach((s) => {
+        const r = s.getBoundingClientRect();
+        // 画面上部から少し下の位置を起点として、それより下にあるスライドのうち最も近いもの
+        const ref = 100;
+        const dist = Math.abs(r.top - ref);
+        if (r.top <= ref + 200 && dist < bestDist) {
+          best = s;
+          bestDist = dist;
+        }
+      });
+      if (best && best.id) setCurrent(best.id, false);
+    }, { threshold: [0, 0.3, 0.6, 1.0], rootMargin: '-50px 0px -50% 0px' });
+    slides.forEach(s => obs.observe(s));
+  }
+
+  function setCurrent(id, scroll = false) {
+    const idx = slides.findIndex(s => s.id === id);
+    if (idx < 0 || idx === currentIdx) return;
+    currentIdx = idx;
+    slides.forEach((s, i) => s.classList.toggle('is-current', i === currentIdx));
+    document.querySelectorAll('.toc-item').forEach(a => {
+      a.classList.toggle('active', a.dataset.id === id);
+    });
+    // active 項目を視界内へ
+    const activeToc = document.querySelector('.toc-item.active');
+    if (activeToc) {
+      activeToc.scrollIntoView({ block: 'nearest' });
+    }
+    // 進行更新
+    document.getElementById('progress-bar').value = currentIdx + 1;
+    document.getElementById('pres-progress').value = currentIdx + 1;
+    const pct = Math.round((currentIdx + 1) / total * 100);
+    document.getElementById('progress-text').textContent = `${currentIdx + 1} / ${total} (${pct}%)`;
+    document.getElementById('pres-info').textContent = `${currentIdx + 1} / ${total}`;
+    document.getElementById('nav-current').textContent =
+      `${slides[currentIdx].dataset.title || slides[currentIdx].id}`;
+    // タイマーリセット
+    slideStartMs = Date.now();
+    pausedAccumMs = 0;
+    pauseStartMs = timerPaused ? Date.now() : null;
+    // localStorage
+    localStorage.setItem(LS_KEYS.last, id);
+    if (scroll) {
+      slides[currentIdx].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  // ===== タイマー =====
+  function updateTimer() {
+    if (!slides[currentIdx]) return;
+    const expected = parseInt(slides[currentIdx].dataset.time || '60', 10);
+    let elapsed;
+    if (timerPaused && pauseStartMs) {
+      elapsed = Math.floor((pauseStartMs - slideStartMs - pausedAccumMs) / 1000);
+    } else {
+      elapsed = Math.floor((Date.now() - slideStartMs - pausedAccumMs) / 1000);
+    }
+    const txt = `⏱ ${fmtTime(elapsed)} / ${fmtTime(expected)}`;
+    document.getElementById('timer-text').textContent = txt;
+    document.getElementById('pres-timer').textContent = txt;
+    const isOver = elapsed > expected;
+    document.getElementById('topbar-timer').classList.toggle('over', isOver);
+  }
+
+  function fmtTime(sec) {
+    const m = Math.floor(sec / 60);
+    const s = Math.floor(sec % 60);
+    return `${m}:${String(s).padStart(2, '0')}`;
+  }
+
+  // ===== ナビゲーション =====
+  function navigate(dir) {
+    const newIdx = Math.max(0, Math.min(total - 1, currentIdx + dir));
+    if (newIdx === currentIdx) return;
+    setCurrent(slides[newIdx].id, !presentationMode);
+    if (presentationMode) {
+      slides[newIdx].scrollTop = 0;
+    }
+  }
+  function jumpTo(idx) {
+    if (idx < 0 || idx >= total) return;
+    setCurrent(slides[idx].id, true);
+  }
+  function jumpToBu(num) {
+    const target = document.getElementById(`bu1-${num}`);
+    if (target) setCurrent(target.id, true);
+  }
+
+  // ===== ダーク =====
+  function toggleDark() {
+    darkMode = !darkMode;
+    document.body.classList.toggle('dark', darkMode);
+    localStorage.setItem(LS_KEYS.dark, darkMode);
+    document.getElementById('ctrl-dark').classList.toggle('active', darkMode);
+  }
+
+  // ===== フォント =====
+  function changeFont(delta) {
+    fontSize = Math.max(11, Math.min(24, fontSize + delta));
+    document.documentElement.style.setProperty('--script-font-size', fontSize + 'px');
+    localStorage.setItem(LS_KEYS.font, fontSize);
+  }
+
+  // ===== プレゼンモード =====
+  function togglePresentation() {
+    presentationMode = !presentationMode;
+    document.body.classList.toggle('presentation', presentationMode);
+    document.getElementById('ctrl-presentation').classList.toggle('active', presentationMode);
+    if (presentationMode) {
+      // フルスクリーン APIを使う場合(失敗してもOK)
+      if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      }
+    } else {
+      if (document.exitFullscreen && document.fullscreenElement) {
+        document.exitFullscreen().catch(() => {});
+      }
+      // 通常モードに戻したら現在スライドへスクロール
+      slides[currentIdx].scrollIntoView({ block: 'start' });
+    }
+  }
+
+  // ===== 検索 =====
+  let searchTimer = null;
+  function onSearch(e) {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => doSearch(e.target.value), 150);
+  }
+  function doSearch(q) {
+    q = q.trim().toLowerCase();
+    document.querySelectorAll('.toc-item').forEach(a => {
+      const text = (a.dataset.search || '').toLowerCase();
+      const matches = !q || text.includes(q);
+      a.style.display = matches ? '' : 'none';
+    });
+    document.querySelectorAll('mark.search-mark').forEach(m => {
+      const parent = m.parentNode;
+      parent.replaceChild(document.createTextNode(m.textContent), m);
+      parent.normalize();
+    });
+    if (!q) {
+      document.querySelectorAll('.slide.dim').forEach(s => s.classList.remove('dim'));
+      return;
+    }
+    slides.forEach(s => {
+      const txt = s.textContent.toLowerCase();
+      if (txt.includes(q)) {
+        s.classList.remove('dim');
+        highlightTextInElement(s, q);
+      } else {
+        s.classList.add('dim');
+      }
+    });
+  }
+  function highlightTextInElement(root, q) {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: (node) => {
+        if (!node.textContent.toLowerCase().includes(q)) return NodeFilter.FILTER_REJECT;
+        if (node.parentElement.tagName === 'SCRIPT' || node.parentElement.tagName === 'STYLE') return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(n => {
+      const text = n.textContent;
+      const lower = text.toLowerCase();
+      const parts = [];
+      let i = 0;
+      while (i < text.length) {
+        const j = lower.indexOf(q, i);
+        if (j < 0) { parts.push(text.slice(i)); break; }
+        if (j > i) parts.push(text.slice(i, j));
+        const mark = document.createElement('mark');
+        mark.className = 'search-mark';
+        mark.textContent = text.slice(j, j + q.length);
+        parts.push(mark);
+        i = j + q.length;
+      }
+      const frag = document.createDocumentFragment();
+      parts.forEach(p => {
+        if (typeof p === 'string') frag.appendChild(document.createTextNode(p));
+        else frag.appendChild(p);
+      });
+      n.parentNode.replaceChild(frag, n);
+    });
+  }
+
+  // ===== フィルター =====
+  function applyFilters() {
+    const allowed = Array.from(document.querySelectorAll('.filter-chip input:checked')).map(cb => cb.value);
+    document.querySelectorAll('.toc-item').forEach(a => {
+      const cat = a.dataset.cat;
+      a.style.display = allowed.includes(cat) ? '' : 'none';
+    });
+    localStorage.setItem(LS_KEYS.filters, JSON.stringify(allowed));
+  }
+
+  // ===== モーダル =====
+  function openModal(id) {
+    document.getElementById(id).hidden = false;
+  }
+  function closeModal(id) {
+    document.getElementById(id).hidden = true;
+  }
+  function closeAllModals() {
+    document.querySelectorAll('.modal-backdrop').forEach(m => m.hidden = true);
+    if (presentationMode) togglePresentation();
+  }
+
+  // ===== メモ =====
+  function openMemo() {
+    const id = slides[currentIdx].id;
+    document.getElementById('memo-title').textContent =
+      `メモ — BU1-${currentIdx + 1} / ${slides[currentIdx].dataset.title || ''}`;
+    document.getElementById('memo-textarea').value = memos[id] || '';
+    openModal('memo-modal');
+    setTimeout(() => document.getElementById('memo-textarea').focus(), 50);
+  }
+  function saveMemo() {
+    const id = slides[currentIdx].id;
+    const text = document.getElementById('memo-textarea').value;
+    if (text.trim()) {
+      memos[id] = text;
+    } else {
+      delete memos[id];
+    }
+    localStorage.setItem(LS_KEYS.memos, JSON.stringify(memos));
+    refreshMemoIndicators();
+    closeModal('memo-modal');
+  }
+
+  // ===== タッチスワイプ =====
+  let touchStartX = 0, touchStartY = 0, touchStartTime = 0;
+  function onTouchStart(e) {
+    if (e.touches.length !== 1) return;
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+    touchStartTime = Date.now();
+  }
+  function onTouchEnd(e) {
+    if (e.changedTouches.length !== 1) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    const dt = Date.now() - touchStartTime;
+    if (dt > 600) return;
+    if (Math.abs(dx) < 80 || Math.abs(dy) > Math.abs(dx) * 0.6) return;
+    // プレゼンモード以外では、テキストを読みたい人もいるので一律スワイプは抑制
+    if (!presentationMode) return;
+    navigate(dx > 0 ? -1 : 1);
+  }
+
+  // ===== キーボード =====
+  function onKeydown(e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+      if (e.key === 'Escape') e.target.blur();
+      return;
+    }
+    // ジャンプモード(g + 数字)
+    if (pendingJumpDigits) {
+      if (e.key >= '0' && e.key <= '9') {
+        pendingJumpDigits += e.key;
+        clearTimeout(jumpTimer);
+        jumpTimer = setTimeout(commitJump, 1200);
+        return;
+      }
+      if (e.key === 'Enter') { commitJump(); return; }
+      if (e.key === 'Escape') { pendingJumpDigits = ''; clearTimeout(jumpTimer); return; }
+    }
+    switch (e.key) {
+      case 'ArrowRight': case 'l': navigate(1); break;
+      case 'ArrowLeft': case 'h': navigate(-1); break;
+      case 'Home': jumpTo(0); break;
+      case 'End': jumpTo(total - 1); break;
+      case 'f': case 'F': togglePresentation(); break;
+      case 'd': case 'D': toggleDark(); break;
+      case '+': case '=': changeFont(1); break;
+      case '-': changeFont(-1); break;
+      case '/':
+        document.getElementById('search-input').focus();
+        e.preventDefault();
+        break;
+      case 'm': case 'M': openMemo(); break;
+      case 'g': case 'G':
+        pendingJumpDigits = ' ';
+        jumpTimer = setTimeout(() => { pendingJumpDigits = ''; }, 1500);
+        break;
+      case '?':
+        openModal('help-modal');
+        break;
+      case 'Escape':
+        closeAllModals();
+        break;
+    }
+  }
+  function commitJump() {
+    const num = parseInt(pendingJumpDigits.trim(), 10);
+    if (!isNaN(num) && num >= 1 && num <= 56) jumpToBu(num);
+    pendingJumpDigits = '';
+    clearTimeout(jumpTimer);
+  }
+
+  // ===== タイマー一時停止/リセット =====
+  function toggleTimerPause() {
+    if (timerPaused) {
+      pausedAccumMs += Date.now() - pauseStartMs;
+      pauseStartMs = null;
+      timerPaused = false;
+      document.getElementById('timer-pause').textContent = '⏸';
+    } else {
+      pauseStartMs = Date.now();
+      timerPaused = true;
+      document.getElementById('timer-pause').textContent = '▶';
+    }
+  }
+  function resetTimer() {
+    slideStartMs = Date.now();
+    pausedAccumMs = 0;
+    if (timerPaused) pauseStartMs = Date.now();
+  }
+
+  // ===== イベント登録 =====
+  function setupListeners() {
+    document.getElementById('btn-toggle-sidebar').addEventListener('click', () => {
+      document.body.classList.toggle('sidebar-open');
+    });
+    document.getElementById('nav-prev').addEventListener('click', () => navigate(-1));
+    document.getElementById('nav-next').addEventListener('click', () => navigate(1));
+    document.getElementById('ctrl-dark').addEventListener('click', toggleDark);
+    document.getElementById('ctrl-font-up').addEventListener('click', () => changeFont(1));
+    document.getElementById('ctrl-font-down').addEventListener('click', () => changeFont(-1));
+    document.getElementById('ctrl-presentation').addEventListener('click', togglePresentation);
+    document.getElementById('ctrl-memo').addEventListener('click', openMemo);
+    document.getElementById('ctrl-help').addEventListener('click', () => openModal('help-modal'));
+    document.getElementById('search-input').addEventListener('input', onSearch);
+    document.querySelectorAll('.filter-chip input').forEach(cb => {
+      cb.addEventListener('change', applyFilters);
+    });
+    document.querySelectorAll('[data-close]').forEach(b => {
+      b.addEventListener('click', () => {
+        const m = b.closest('.modal-backdrop');
+        if (m) m.hidden = true;
+      });
+    });
+    document.querySelectorAll('.modal-backdrop').forEach(m => {
+      m.addEventListener('click', e => {
+        if (e.target === m) m.hidden = true;
+      });
+    });
+    document.getElementById('memo-save').addEventListener('click', saveMemo);
+    document.getElementById('memo-clear').addEventListener('click', () => {
+      document.getElementById('memo-textarea').value = '';
+    });
+    document.getElementById('memo-textarea').addEventListener('keydown', e => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 's') {
+        e.preventDefault(); saveMemo();
+      }
+    });
+    document.getElementById('pres-prev').addEventListener('click', () => navigate(-1));
+    document.getElementById('pres-next').addEventListener('click', () => navigate(1));
+    document.getElementById('pres-exit').addEventListener('click', togglePresentation);
+    document.getElementById('timer-pause').addEventListener('click', toggleTimerPause);
+    document.getElementById('timer-reset').addEventListener('click', resetTimer);
+    document.querySelectorAll('.toc-item').forEach(a => {
+      a.addEventListener('click', () => {
+        document.body.classList.remove('sidebar-open');
+      });
+    });
+    document.addEventListener('keydown', onKeydown);
+    document.addEventListener('touchstart', onTouchStart, { passive: true });
+    document.addEventListener('touchend', onTouchEnd, { passive: true });
+  }
+
+  // 起動
+  document.addEventListener('DOMContentLoaded', init);
+  if (document.readyState !== 'loading') init();
+})();
+
+
+</script>
+</body>
+</html>
